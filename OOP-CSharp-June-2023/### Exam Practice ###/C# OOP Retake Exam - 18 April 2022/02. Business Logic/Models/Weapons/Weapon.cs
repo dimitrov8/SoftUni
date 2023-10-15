@@ -1,0 +1,44 @@
+﻿namespace Heroes.Models.Weapons
+{
+    using Contracts;
+    using System;
+    using Utilities.Messages;
+
+    public abstract class Weapon : IWeapon
+    {
+        private string name;
+        private int durability;
+
+        protected Weapon(string name, int durability)
+        {
+            this.Name = name;
+            this.Durability = durability;
+        }
+
+        public string Name
+        {
+            get => this.name;
+            private set
+            {
+                if (string.IsNullOrWhiteSpace(value))
+                    throw new ArgumentException(ExceptionMessages.WeaponTypeNull);
+
+                this.name = value;
+            }
+        }
+
+        public int Durability
+        {
+            get => this.durability;
+            protected set
+            {
+                if (value < 0)
+                    throw new ArgumentException(ExceptionMessages.DurabilityBelowZero);
+
+                this.durability = value;
+            }
+        }
+
+        public abstract int DoDamage();
+    }
+}

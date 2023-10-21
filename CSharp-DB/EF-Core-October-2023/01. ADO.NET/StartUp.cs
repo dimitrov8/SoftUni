@@ -10,9 +10,6 @@ await sqlConnection.OpenAsync();
 // string result = await ..;
 // Console.WriteLine(result);
 
-string result = await IncreaseMinionAgeUsingStoredProcedureAsync(sqlConnection);
-Console.WriteLine(result);
-
 // 02. Villain Names
 static async Task<string> GetAllVillainNamesAsync(SqlConnection sqlConnection)
 {

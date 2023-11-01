@@ -7,6 +7,11 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 public class Song
 {
+    public Song()
+    {
+        this.SongPerformers = new HashSet<SongPerformer>();
+    }
+
     [Key]
     public int Id { get; set; }
 
@@ -22,7 +27,7 @@ public class Song
     [ForeignKey(nameof(Album))]
     public int? AlbumId { get; set; }
 
-    public virtual Album? Album { get; set; }
+    public virtual Album? Album { get; set; } = null!;
 
     public int WriterId { get; set; }
 
@@ -30,5 +35,5 @@ public class Song
 
     public decimal Price { get; set; }
 
-    public virtual ICollection<SongPerformer> SongPerformers { get; set; } = null!;
+    public virtual ICollection<SongPerformer> SongPerformers { get; set; }
 }

@@ -6,6 +6,11 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 public class Album
 {
+    public Album()
+    {
+        this.Songs = new HashSet<Song>();
+    }
+
     [Key]
     public int Id { get; set; }
 
@@ -22,5 +27,5 @@ public class Album
 
     public virtual Producer? Producer { get; set; }
 
-    public virtual ICollection<Song> Songs { get; set; } = null!;
+    public virtual ICollection<Song> Songs { get; set; }
 }

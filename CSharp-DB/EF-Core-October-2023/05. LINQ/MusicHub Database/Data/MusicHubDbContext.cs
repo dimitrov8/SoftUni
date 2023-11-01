@@ -53,5 +53,10 @@ public class MusicHubDbContext : DbContext
                 .Property(s => s.CreatedOn)
                 .HasColumnType("date");
         });
+
+        builder.Entity<SongPerformer>(entity =>
+        {
+            entity.HasKey(ck => new { ck.PerformerId, ck.SongId });
+        });
     }
 }

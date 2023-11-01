@@ -5,12 +5,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 public class SongPerformer
 {
-    [Key]
+    [ForeignKey(nameof(Song))]
     public int SongId { get; set; }
 
     public virtual Song Song { get; set; } = null!;
 
-    [ForeignKey(nameof(SongPerformer))]
+    [ForeignKey(nameof(Performer))]
     public int PerformerId { get; set; }
 
     public virtual Performer Performer { get; set; } = null!;

@@ -51,10 +51,8 @@ public class StartUp
         //string result = GetBooksByAuthor(dbContext, "R");
         //Console.WriteLine(result);
 
-        // TODO ->
-
-        // 11. Count Books 
-        //string result = CountBooks(dbContext, 12);
+        //11.Count Books
+        //int result = CountBooks(dbContext, 12);
         //Console.WriteLine(result);
 
         // 12. Total Book Copies 
@@ -70,11 +68,10 @@ public class StartUp
         //Console.WriteLine(result);
 
         // 15. Increase Prices
-        //string result = IncreasePrices(dbContext);
-        //Console.WriteLine(result);
+        //IncreasePrices(dbContext);
 
         // 16. Remove Books 
-        //string result = RemoveBooks(dbContext);
+        //int result = RemoveBooks(dbContext);
         //Console.WriteLine(result);
     }
 
@@ -249,37 +246,116 @@ public class StartUp
 
     // 11. Count Books 
     public static int CountBooks(BookShopContext context, int lengthCheck)
-    {
-        throw new NotImplementedException();
-    }
+        => context.Books
+            .Where(b => b.Title.Length > lengthCheck)
+            .Select(b => b.Title)
+            .AsNoTracking()
+            .Count();
 
     // 12. Total Book Copies 
     public static string CountCopiesByAuthor(BookShopContext context)
     {
-        throw new NotImplementedException();
+        var authorBookCopiesCount = context.Authors
+            .Select(a => new
+            {
+                AuthorFullName = $"{a.FirstName} {a.LastName}",
+                TotalBookCopies = a.Books.Sum(b => b.Copies)
+            })
+            .AsNoTracking()
+            .OrderByDescending(a => a.TotalBookCopies)
+            .ToArray();
+
+        return string.Join(Environment.NewLine, authorBookCopiesCount.Select(a => $"{a.AuthorFullName} - {a.TotalBookCopies}"));
     }
 
     // 13. Profit by Category 
     public static string GetTotalProfitByCategory(BookShopContext context)
     {
-        throw new NotImplementedException();
+        var bookCategoriesProfits = context.Categories
+            .Select(c => new
+            {
+                c.Name,
+                Profit = c.CategoryBooks
+                    .Sum(cb => cb.Book.Copies * cb.Book.Price)
+            })
+            .AsNoTracking()
+            .OrderByDescending(bcp => bcp.Profit)
+            .ThenBy(bcp => bcp.Name)
+            .ToArray()
+            .Select(bcp => new
+            {
+                bcp.Name,
+                Profit = bcp.Profit.ToString("F2")
+            })
+            .ToArray();
+
+        return string.Join(Environment.NewLine, bookCategoriesProfits.Select(bcp => $"{bcp.Name} ${bcp.Profit}"));
     }
 
     // 14. Most Recent Books 
     public static string GetMostRecentBooks(BookShopContext context)
     {
-        throw new NotImplementedException();
+        var mostRecentBooksByCategories = context.Categories
+            .OrderBy(c => c.Name)
+            .Select(c => new
+            {
+                CategoryName = c.Name,
+                MostRecentBooks = c.CategoryBooks
+                    .OrderByDescending(cb => cb.Book.ReleaseDate)
+                    .Take(3)
+                    .Select(cb => new
+                    {
+                        BookTitle = cb.Book.Title,
+                        ReleaseDate = cb.Book.ReleaseDate.HasValue
+                            ? $"({cb.Book.ReleaseDate.Value.Year})"
+                            : "Unknown Release Date"
+                    })
+                    .ToArray()
+            })
+            .AsNoTracking()
+            .ToArray();
+
+        var sb = new StringBuilder();
+
+        foreach (var c in mostRecentBooksByCategories)
+        {
+            sb.AppendLine($"--{c.CategoryName}");
+
+            foreach (var b in c.MostRecentBooks)
+            {
+                sb.AppendLine($"{b.BookTitle} {b.ReleaseDate}");
+            }
+        }
+
+        return sb.ToString().TrimEnd();
     }
 
     // 15. Increase Prices
     public static void IncreasePrices(BookShopContext context)
     {
-        throw new NotImplementedException();
+        Book[] booksReleasedBefore2010 = context.Books
+            .Where(b => b.ReleaseDate.HasValue && b.ReleaseDate.Value.Year < 2010)
+            .ToArray();
+
+        foreach (var b in booksReleasedBefore2010)
+        {
+            b.Price += 5;
+        }
+
+        context.BulkUpdate(booksReleasedBefore2010);
     }
 
     // 16. Remove Books 
     public static int RemoveBooks(BookShopContext context)
     {
-        throw new NotImplementedException();
+        Book[] booksToRemove = context.Books
+            .Where(b => b.Copies < 4200)
+            .ToArray();
+
+        context.Books.RemoveRange(booksToRemove);
+
+        context.BulkSaveChanges();
+
+        return booksToRemove.Length;
     }
 }

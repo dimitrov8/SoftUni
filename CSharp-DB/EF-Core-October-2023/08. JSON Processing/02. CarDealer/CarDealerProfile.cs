@@ -8,17 +8,16 @@ public class CarDealerProfile : Profile
 {
     public CarDealerProfile()
     {
-        // Supplier
-        this.CreateMap<ImportSupplierDto, Supplier>();
+        // Customer
+        this.CreateMap<ImportCustomerDto, Customer>();
 
-        // Part
-        this.CreateMap<ImportPartDto, Part>();
-
-        // Car
-        this.CreateMap<ImportCarDto, Car>();
-        this.CreateMap<ImportCarDto, Car>()
-            .ForMember(d => d.PartsCars,
-                opt => opt.MapFrom(s =>
-                    s.PartsId.Select(id => new PartCar { PartId = id })));
+        // Sale 
+        this.CreateMap<ImportSaleDto, Sale>()
+            .ForMember(d => d.CarId,
+                opt => opt.MapFrom(s => s.CarId))
+            .ForMember(d => d.CustomerId,
+                opt => opt.MapFrom(s => s.CustomerId))
+            .ForMember(d => d.Discount,
+                opt => opt.MapFrom(s => s.Discount));
     }
 }

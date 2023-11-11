@@ -8,5 +8,5 @@ public class ImportCarDto
 
     public long TraveledDistance { get; set; }
 
-    public IEnumerable<int> PartsId { get; set; } = new HashSet<int>();
+    public ICollection<int> PartsId { get; set; } = new HashSet<int>();
 }

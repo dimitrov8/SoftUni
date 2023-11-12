@@ -21,6 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="DTOs\Export\" />
     <Folder Include="Results\" />
   </ItemGroup>
 

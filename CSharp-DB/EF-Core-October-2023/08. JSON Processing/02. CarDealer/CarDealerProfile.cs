@@ -8,6 +8,9 @@ public class CarDealerProfile : Profile
 {
     public CarDealerProfile()
     {
+        // Car
+        this.CreateMap<ImportCarDto, Car>();
+        
         // Customer
         this.CreateMap<ImportCustomerDto, Customer>();
 

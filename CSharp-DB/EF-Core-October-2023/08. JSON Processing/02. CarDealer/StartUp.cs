@@ -3,6 +3,7 @@
 using AutoMapper;
 using Data;
 using DTOs.Import;
+using Microsoft.EntityFrameworkCore;
 using Models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
@@ -36,6 +37,26 @@ public class StartUp
 
         // 14. Export Ordered Customers 
         //string result = GetOrderedCustomers(context);
+        //Console.WriteLine(result);
+
+        // 15.Export Cars From Make Toyota
+        //string result = GetCarsFromMakeToyota(context);
+        //Console.WriteLine(result);
+
+        // 16. Export Local Suppliers
+        //string result = GetLocalSuppliers(context);
+        //Console.WriteLine(result);
+
+        // 17. Export Cars with Their List of Parts
+        //string result = GetCarsWithTheirListOfParts(context);
+        //Console.WriteLine(result);
+
+        // 18.Export Total Sales By Customer
+        //string result = GetTotalSalesByCustomer(context);
+        //Console.WriteLine(result);
+
+        // 19. Export Sales With Applied Discount 
+        //string result = GetSalesWithAppliedDiscount(context);
         //Console.WriteLine(result);
     }
 
@@ -130,7 +151,7 @@ public class StartUp
             }
 
         context.Cars.AddRange(validCars); // Add all valid cars to the context's Cars collection
-        context.SaveChanges(); // Save changes to the database
+        //  context.SaveChanges(); // Save changes to the database
 
         return $"Successfully imported {validCars.Count}.";
     }
@@ -193,7 +214,7 @@ public class StartUp
     // 14. Export Ordered Customers 
     public static string GetOrderedCustomers(CarDealerContext context)
     {
-        var customerDtos = context.Customers
+        var customer = context.Customers
             .OrderBy(c => c.BirthDate)
             // If two customers are born on the same date first print those who are not young drivers
             .ThenBy(c => c.IsYoungDriver ? 1 : 0)
@@ -203,14 +224,119 @@ public class StartUp
                 BirthDate = c.BirthDate.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture),
                 c.IsYoungDriver
             })
+            .AsNoTracking()
             .ToArray();
 
-        string orderedCustomers = JsonConvert.SerializeObject(customerDtos, Formatting.Indented);
-
-        return orderedCustomers;
+        return JsonConvert.SerializeObject(customer, Formatting.Indented);
     }
 
-    // TODO =>
+    // 15. Export Cars From Make Toyota 
+    public static string GetCarsFromMakeToyota(CarDealerContext context)
+    {
+        var cars = context.Cars
+            .Where(c => c.Make == "Toyota")
+            .Select(c => new
+            {
+                c.Id,
+                c.Make,
+                c.Model,
+                c.TraveledDistance
+            })
+            .AsNoTracking()
+            .OrderBy(c => c.Model)
+            .ThenByDescending(c => c.TraveledDistance)
+            .ToArray();
+
+        return JsonConvert.SerializeObject(cars, Formatting.Indented);
+    }
+
+    // 16. Export Local Suppliers
+    public static string GetLocalSuppliers(CarDealerContext context)
+    {
+        var suppliers = context.Suppliers
+            .Where(s => !s.IsImporter)
+            .Select(s => new
+            {
+                s.Id,
+                s.Name,
+                PartsCount = s.Parts.Count
+            })
+            .AsNoTracking()
+            .ToArray();
+
+        return JsonConvert.SerializeObject(suppliers, Formatting.Indented);
+    }
+
+    // 17. Export Cars with Their List of Parts
+    public static string GetCarsWithTheirListOfParts(CarDealerContext context)
+    {
+        var cars = context.Cars
+            .Select(c => new
+            {
+                car = new
+                {
+                    c.Make,
+                    c.Model,
+                    c.TraveledDistance
+                },
+
+                parts = c.PartsCars.Select(pc => new
+                {
+                    pc.Part.Name,
+                    Price = pc.Part.Price.ToString("F2")
+                })
+            })
+            .AsNoTracking()
+            .ToArray();
+
+        return JsonConvert.SerializeObject(cars, Formatting.Indented);
+    }
+
+    // 18. Export Total Sales by Customer
+    public static string GetTotalSalesByCustomer(CarDealerContext context)
+    {
+        var customers = context.Customers
+            .Where(c => c.Sales.Count > 0)
+            .Select(c => new
+            {
+                FullName = c.Name,
+                BoughtCars = c.Sales.Count,
+                SpentMoney = c.Sales.Sum(s => s.Car.PartsCars.Sum(pc => pc.Part.Price))
+            })
+            .AsNoTracking()
+            .OrderByDescending(c => c.SpentMoney)
+            .ThenByDescending(c => c.BoughtCars)
+            .ToArray();
+
+        var settings = JsonCamelCaseAndFormatIndentedJsonSerializerSettings();
+
+        return JsonConvert.SerializeObject(customers, Formatting.Indented, settings);
+    }
+
+    // 19. Export Sales With Applied Discount 
+    public static string GetSalesWithAppliedDiscount(CarDealerContext context)
+    {
+        var sales = context.Sales
+            .Take(10)
+            .Select(s => new
+            {
+                car = new
+                {
+                    s.Car.Make,
+                    s.Car.Model,
+                    s.Car.TraveledDistance
+                },
+
+                customerName = s.Customer.Name,
+                discount = s.Discount.ToString("F2"),
+                price = s.Car.PartsCars.Sum(pc => pc.Part.Price).ToString("F2"),
+                priceWithDiscount = (s.Car.PartsCars.Sum(pc => pc.Part.Price) * (1 - s.Discount / 100)).ToString("F2")
+            })
+            .AsNoTracking()
+            .ToArray();
+
+        return JsonConvert.SerializeObject(sales, Formatting.Indented);
+    }
 
     public static IMapper CreateMapper() => new Mapper(new MapperConfiguration(cfg => { cfg.AddProfile<CarDealerProfile>(); }));
 
@@ -219,4 +345,10 @@ public class StartUp
         {
             NamingStrategy = new CamelCaseNamingStrategy(false, true)
         };
+
+    public static JsonSerializerSettings JsonCamelCaseAndFormatIndentedJsonSerializerSettings() => new()
+    {
+        ContractResolver = ConfigureCamelCaseNaming(),
+        Formatting = Formatting.Indented
+    };
 }

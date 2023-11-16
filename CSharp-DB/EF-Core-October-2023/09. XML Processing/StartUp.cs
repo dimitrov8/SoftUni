@@ -1,6 +1,7 @@
 ﻿namespace ProductShop;
 
 using AutoMapper;
+using AutoMapper.QueryableExtensions;
 using Data;
 using DTOs.Export;
 using DTOs.Import;
@@ -141,31 +142,21 @@ public class StartUp
         return $"Successfully imported {validCategoryProducts.Count}";
     }
 
-    // 05. Export Products In Range TODO =>
+    // 05. Export Products In Range
     public static string GetProductsInRange(ProductShopContext context)
     {
         var mapper = InitializeAutoMapper();
         var xmlHelper = new XmlHelper();
 
-        Product[] products = context.Products
-            .Include(p => p.Buyer) // Eager loading
+        ExportProductDto[] productDtos = context.Products
             .Where(p => p.Price >= 500 && p.Price <= 1000)
             .OrderBy(p => p.Price)
             .Take(10)
+            .ProjectTo<ExportProductDto>(mapper.ConfigurationProvider)
             .AsNoTracking()
             .ToArray();
 
-        var productDtos = new HashSet<ExportProductDto>();
-
-        foreach (var product in products)
-        {
-            var productDto = mapper.Map<ExportProductDto>(product);
-            productDtos.Add(productDto);
-        }
-
-        string serializeXml = xmlHelper.Serialize(productDtos, "Products");
-
-        return serializeXml;
+        return xmlHelper.Serialize(productDtos, "Products");
     }
 
 

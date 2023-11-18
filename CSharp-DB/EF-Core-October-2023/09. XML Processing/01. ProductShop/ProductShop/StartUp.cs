@@ -21,8 +21,8 @@ public class StartUp
         //Console.WriteLine(result);
 
         // Exports
-        string result = GetProductsInRange(context);
-        Console.WriteLine(result);
+        //string result = GetUsersWithProducts(context);
+        //Console.WriteLine(result);
     }
 
     // 01. Import Users 
@@ -159,6 +159,79 @@ public class StartUp
         return xmlHelper.Serialize(productDtos, "Products");
     }
 
+    // 06. Export Sold Products
+    public static string GetSoldProducts(ProductShopContext context)
+    {
+        var mapper = InitializeAutoMapper();
+        var xmlHelper = new XmlHelper();
+
+        ExportUserSoldProductDto[] userWithSoldProductDtos = context.Users
+            .Where(u => u.ProductsSold.Count > 0)
+            .OrderBy(u => u.LastName)
+            .ThenBy(u => u.FirstName)
+            .Take(5)
+            .ProjectTo<ExportUserSoldProductDto>(mapper.ConfigurationProvider)
+            .AsNoTracking()
+            .ToArray();
+
+        return xmlHelper.Serialize(userWithSoldProductDtos, "Users");
+    }
+
+    // 07. Export Categories By Products Count 
+    public static string GetCategoriesByProductsCount(ProductShopContext context)
+    {
+        var mapper = InitializeAutoMapper();
+        var xmlHelper = new XmlHelper();
+
+        ExportCategoryByProductCountDto[] categoryDtos = context.Categories
+            .AsNoTracking()
+            .ProjectTo<ExportCategoryByProductCountDto>(mapper.ConfigurationProvider)
+            .OrderByDescending(c => c.Count)
+            .ThenBy(c => c.TotalRevenue)
+            .ToArray();
+
+        return xmlHelper.Serialize(categoryDtos, "Categories");
+    }
+
+    // 08. Export Users and Products  
+    public static string GetUsersWithProducts(ProductShopContext context)
+    {
+        var mapper = InitializeAutoMapper();
+
+        var xmlHelper = new XmlHelper();
+
+        ExportUserAndSoldProductsCount[] userDtos = context.Users
+            .Where(u => u.ProductsSold.Any())
+            .OrderByDescending(u => u.ProductsSold.Count)
+            .Select(u => new ExportUserAndSoldProductsCount
+            {
+                FirstName = u.FirstName,
+                LastName = u.LastName,
+                Age = u.Age,
+                SoldProductCount = new ExportSoldProductCountDto
+                {
+                    Count = u.ProductsSold.Count,
+                    Products = u.ProductsSold.Select(p => new ExportSoldProductDto
+                        {
+                            Name = p.Name,
+                            Price = p.Price
+                        })
+                        .OrderByDescending(p => p.Price)
+                        .ToArray()
+                }
+            })
+            .Take(10)
+            .AsNoTracking()
+            .ToArray();
+
+        var result = new ExportUserCountAndSoldProductResult
+        {
+            Count = context.Users.Count(u => u.ProductsSold.Any()),
+            Users = userDtos
+        };
+
+        return xmlHelper.Serialize(result, "Users");
+    }
 
     private static IMapper InitializeAutoMapper()
         => new Mapper(new MapperConfiguration(cfg => cfg.AddProfile<ProductShopProfile>()));

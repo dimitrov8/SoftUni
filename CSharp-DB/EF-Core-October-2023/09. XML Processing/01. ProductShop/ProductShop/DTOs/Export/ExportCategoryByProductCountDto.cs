@@ -1,0 +1,19 @@
+﻿namespace ProductShop.DTOs.Export;
+
+using System.Xml.Serialization;
+
+[XmlType("Category")]
+public class ExportCategoryByProductCountDto
+{
+    [XmlElement("name")]
+    public string Name { get; set; } = null!;
+
+    [XmlElement("count")]
+    public int Count { get; set; }
+
+    [XmlElement("averagePrice")]
+    public decimal Average { get; set; }
+
+    [XmlElement("totalRevenue")]    
+    public decimal TotalRevenue { get; set; }
+}

@@ -21,5 +21,5 @@ public class Product
 
     public CategoryType CategoryType { get; set; }
 
-    public ICollection<ProductClient> ProductsClients { get; set; }
+    public virtual ICollection<ProductClient> ProductsClients { get; set; }
 }

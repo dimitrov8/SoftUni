@@ -20,9 +20,9 @@ public class Client
     [StringLength(ValidationConstants.MAX_CLIENT_NUMBER_VAT_LENGTH, MinimumLength = ValidationConstants.MIN_CLIENT_NUMBER_VAT_LENGTH)]
     public string NumberVat { get; set; } = null!;
 
-    public ICollection<Address> Addresses { get; set; }
+    public virtual ICollection<Address> Addresses { get; set; }
 
-    public ICollection<Invoice> Invoices { get; set; }
+    public virtual ICollection<Invoice> Invoices { get; set; }
 
-    public ICollection<ProductClient> ProductsClients { get; set; }
+    public virtual ICollection<ProductClient> ProductsClients { get; set; }
 }

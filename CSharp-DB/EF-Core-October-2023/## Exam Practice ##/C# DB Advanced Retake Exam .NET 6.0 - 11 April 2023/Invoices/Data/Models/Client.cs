@@ -1,6 +1,7 @@
 ﻿namespace Invoices.Data.Models;
 
 using System.ComponentModel.DataAnnotations;
+using Invoices.Common;
 
 public class Client
 {
@@ -14,9 +15,11 @@ public class Client
     [Key]
     public int Id { get; set; }
 
+    [Required]
     [StringLength(ValidationConstants.MAX_CLIENT_NAME_LENGTH, MinimumLength = ValidationConstants.MIN_CLIENT_NAME_LENGTH)]
     public string Name { get; set; } = null!;
 
+    [Required]
     [StringLength(ValidationConstants.MAX_CLIENT_NUMBER_VAT_LENGTH, MinimumLength = ValidationConstants.MIN_CLIENT_NUMBER_VAT_LENGTH)]
     public string NumberVat { get; set; } = null!;
 

@@ -1,4 +1,4 @@
-﻿namespace Invoices.Data;
+﻿namespace Invoices.Common;
 
 public static class ValidationConstants
 {

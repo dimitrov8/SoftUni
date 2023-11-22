@@ -1,7 +1,7 @@
 ﻿namespace Invoices.Data.Models;
 
+using Common;
 using System.ComponentModel.DataAnnotations;
-using Invoices.Common;
 
 public class Client
 {

@@ -9,6 +9,8 @@ public static class ValidationConstants
     public const double MIN_PRODUCT_PRICE = 5.00;
     public const double MAX_PRODUCT_PRICE = 1000.00;
 
+    public const int MIN_CATEGORY_TYPE_VALUE = 0;
+    public const int MAX_CATEGORY_TYPE_VALUE = 4;
 
     // Address
     public const int MIN_STREET_NAME_LENGTH = 10;
@@ -23,6 +25,9 @@ public static class ValidationConstants
     // Invoice
     public const int MIN_INVOICE_NUMBER_NAME_LENGTH = 1000000000;
     public const int MAX_INVOICE_NUMBER_NAME_LENGTH = 1500000000;
+
+    public const int MIN_CURRENCY_TYPE_VALUE = 0;
+    public const int MAX_CURRENCY_TYPE_VALUE = 2;
 
     // Client
     public const int MIN_CLIENT_NAME_LENGTH = 10;

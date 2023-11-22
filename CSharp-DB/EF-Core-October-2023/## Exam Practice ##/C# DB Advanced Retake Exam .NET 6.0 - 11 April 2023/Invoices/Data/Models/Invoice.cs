@@ -1,7 +1,7 @@
 ﻿namespace Invoices.Data.Models;
 
+using Common;
 using Enums;
-using Invoices.Common;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 

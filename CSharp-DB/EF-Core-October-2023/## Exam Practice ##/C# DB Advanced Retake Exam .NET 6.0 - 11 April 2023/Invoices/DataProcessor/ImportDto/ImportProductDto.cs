@@ -1,19 +1,11 @@
-﻿namespace Invoices.Data.Models;
+﻿namespace Invoices.DataProcessor.ImportDto;
 
 using Common;
-using Enums;
+using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations;
 
-public class Product
+public class ImportProductDto
 {
-    public Product()
-    {
-        this.ProductsClients = new HashSet<ProductClient>();
-    }
-
-    [Key]
-    public int Id { get; set; }
-
     [Required]
     [StringLength(ValidationConstants.MAX_PRODUCT_NAME_LENGTH, MinimumLength = ValidationConstants.MIN_PRODUCT_NAME_LENGTH)]
     public string Name { get; set; } = null!;
@@ -23,7 +15,9 @@ public class Product
     public decimal Price { get; set; }
 
     [Required]
-    public CategoryType CategoryType { get; set; }
+    [Range(ValidationConstants.MIN_CATEGORY_TYPE_VALUE, ValidationConstants.MAX_CATEGORY_TYPE_VALUE)]
+    public string CategoryType { get; set; } = null!;
 
-    public virtual ICollection<ProductClient> ProductsClients { get; set; }
+    [JsonProperty("Clients")]
+    public int[] ClientIds { get; set; } = null!;
 }

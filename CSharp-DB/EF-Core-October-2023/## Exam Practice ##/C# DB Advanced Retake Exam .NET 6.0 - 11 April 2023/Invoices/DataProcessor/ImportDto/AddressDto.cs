@@ -1,6 +1,6 @@
 ﻿namespace Invoices.DataProcessor.ImportDto;
 
-using Invoices.Common;
+using Common;
 using System.ComponentModel.DataAnnotations;
 using System.Xml.Serialization;
 

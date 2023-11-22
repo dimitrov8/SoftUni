@@ -2,9 +2,9 @@
 
 public enum CategoryType
 {
-    ADR = 1,
-    Filters = 2,
-    Lights = 3,
-    Others = 4,
-    Tyres = 5
+    ADR = 0,
+    Filters = 1,
+    Lights = 2,
+    Others = 3,
+    Tyres = 4
 }

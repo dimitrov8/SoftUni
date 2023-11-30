@@ -32,9 +32,19 @@ public class FootballersContext : DbContext
         }
     }
 
-
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        // TeamFootballer 
         modelBuilder.Entity<TeamFootballer>(entity => { entity.HasKey(tf => new { tf.TeamId, tf.FootballerId }); });
+
+        // Footballer
+        modelBuilder.Entity<Footballer>(entity =>
+        {
+            entity.Property(f => f.ContractStartDate)
+                .HasColumnType("date");
+
+            entity.Property(f => f.ContractEndDate)
+                .HasColumnType("date");
+        });
     }
 }

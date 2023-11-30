@@ -17,7 +17,7 @@ public class Footballer
 
     [Required]
     [MaxLength(ValidationConstants.FOOTBALLER_NAME_MAX_LENGTH)]
-    public string Name { get; set; }
+    public string Name { get; set; } = null!;
 
     [Required]
     public DateTime ContractStartDate { get; set; }
@@ -29,7 +29,7 @@ public class Footballer
     public PositionType PositionType { get; set; }
 
     [Required]
-    public PositionType BestSkillType { get; set; }
+    public BestSkillType BestSkillType { get; set; }
 
     [Required]
     [ForeignKey(nameof(Coach))]

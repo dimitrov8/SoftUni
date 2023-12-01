@@ -10,7 +10,7 @@ public class StartUp
     public static void Main()
     {
         var context = new FootballersContext();
-
+//
         //var config = new MapperConfiguration(cfg =>
         //{
         //    cfg.AddProfile<FootballersProfile>();

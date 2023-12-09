@@ -1,6 +1,6 @@
 # C# OOP Course - May 2023
 
-**C# OOP** course at **Software University**. Below is a quick overview of what I've learned and studied during the course.
+**C# OOP** course at [Software University](https://softuni.bg/). Below is a quick overview of what I've learned and studied during the course.
 
 ## Key Learnings
 

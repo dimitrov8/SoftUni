@@ -1,6 +1,6 @@
 # MS SQL Course - September 2023
 
-**Database** course with **MS SQL** at **Software University**. Below is a quick overview of what I've learned and studied during the course.
+**Database** course with **MS SQL** at [Software University](https://softuni.bg/). Below is a quick overview of what I've learned and studied during the course.
 
 ## Key Learnings
 

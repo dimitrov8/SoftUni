@@ -1,6 +1,6 @@
 # C# Advanced Course - May 2023
 
-**C# Advanced** course at [Software University](https://softuni.bg/). Below is a comprehensive overview of what I've learned and studied during the course.
+**C# Advanced** course at **[Software University](https://softuni.bg/)**. Below is a comprehensive overview of what I've learned and studied during the course.
 
 ## Key Learnings
 

@@ -25,3 +25,5 @@ Welcome to the repository for my **C# Programming Fundamentals** course at [Soft
 - **Regular Expressions:** Learned to use regular expressions for pattern matching.
 
 - **Database Fundamentals:** Introduction to fundamental concepts of databases.
+
+- **Objects and Classes**: Explored object-oriented programming concepts, including classes and objects for code organization and modularity.

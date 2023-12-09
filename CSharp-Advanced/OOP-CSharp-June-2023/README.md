@@ -14,6 +14,8 @@
 
 - **Exceptions and Error Handling**: Explored practical approaches to handling exceptions and errors, ensuring robust and error-tolerant code.
 
+- **Debugging Techniques**: Explored effective debugging techniques for identifying and resolving issues in software development.
+
 - **SOLID**: Understood and applied SOLID principles for object-oriented design, fostering maintainability and scalability in software projects.
 
 - **Reflection and Attributes**: Learned about reflection and attributes, exploring ways to inspect and interact with metadata in C#.

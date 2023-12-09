@@ -1,20 +1,20 @@
-# C# Database Course - September 2023
+# C# Database Module - September 2023
 
-Welcome to the repository for the **C# Database** course at **Software University**. This README provides a concise overview of the key learnings from the course.
+Welcome to the repository for the **C# Database** module at **Software University**. This README provides a concise overview of the key learnings from the module.
 
 ## Repository Structure
 
-This repository is organized into two folders, each containing a different module of the **C# Database course**. Here's a brief overview of each module:
+This repository is organized into two folders, each containing a different course of the **C# Database Module**. Here's a brief overview of each course:
 
-### Module 1 => (MS SQL): [MS-SQL-September-2023]
+### Course 1 => (MS SQL): [MS-SQL-September-2023]
 
 - For a detailed overview and key learnings, check the [README](https://github.com/dimitrov8/SoftUni/blob/main/CSharp-DB/MS-SQL-September-2023/README.md) in the corresponding folder.
 
-### Module 2 => (Entity Framework Core): [EF-Core-October-2023]
+### Course 2 => (Entity Framework Core): [EF-Core-October-2023]
 
 - For a detailed overview and key learnings, check the [README](https://github.com/dimitrov8/SoftUni/blob/main/CSharp-DB/EF-Core-October-2023/README.md) in the corresponding folder.
 
-Feel free to explore the content of each module's folder for a more in-depth understanding of the course.
+Feel free to explore the content of each course's folder for a more in-depth understanding of the module.
 
 ## Key Learnings
 

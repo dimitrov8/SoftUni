@@ -12,7 +12,7 @@ This repository is organized into two folders, each containing a different modul
 
 ### Module 2: [EF-Core-October-2023]
 
-- For a detailed overview and key learnings, check the [[README](https://github.com/dimitrov8/SoftUni/blob/main/CSharp-DB/EF-Core-October-2023/README.md) in the corresponding folder.
+- For a detailed overview and key learnings, check the [README](https://github.com/dimitrov8/SoftUni/blob/main/CSharp-DB/EF-Core-October-2023/README.md) in the corresponding folder.
 
 Feel free to explore the content of each module's folder for a more in-depth understanding of the course.
 

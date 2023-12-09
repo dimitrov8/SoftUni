@@ -1,6 +1,6 @@
 # Entity Framework Core (EF Core) Database Course
 
-**Entity Framework Core (EF Core) Database** course. Below is a quick overview of what I've learned and studied during the course.
+**Entity Framework Core (EF Core) Database** course at **Software University**. Below is a quick overview of what I've learned and studied during the course.
 
 ## Key Learnings
 

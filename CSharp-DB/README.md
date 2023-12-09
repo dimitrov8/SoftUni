@@ -1,6 +1,6 @@
 # C# Database Module - September 2023
 
-Welcome to the repository for the **C# Database** module at [Software University](https://softuni.bg/). This README provides a concise overview of the key learnings from the module, which is organized into two distinct courses.
+Welcome to the repository for the **C# Database** module at [Software University](https://softuni.bg/). This **README** provides a concise overview of the key learnings from the module, which is organized into two distinct courses.
 
 ## Repository Structure
 
@@ -8,11 +8,11 @@ This repository is organized into two folders, each containing a different cours
 
 ### Course 1 => (MS SQL): [MS-SQL-September-2023](https://github.com/dimitrov8/SoftUni/tree/main/CSharp-DB/MS-SQL-September-2023)
 
-- For a detailed overview and key learnings, check the [README](https://github.com/dimitrov8/SoftUni/blob/main/CSharp-DB/MS-SQL-September-2023/README.md) in the corresponding folder.
+- For a detailed overview and key learnings, check the **[README](https://github.com/dimitrov8/SoftUni/blob/main/CSharp-DB/MS-SQL-September-2023/README.md)** in the corresponding folder.
 
 ### Course 2 => (Entity Framework Core): [EF-Core-October-2023](https://github.com/dimitrov8/SoftUni/tree/main/CSharp-DB/EF-Core-October-2023)
 
-- For a detailed overview and key learnings, check the [README](https://github.com/dimitrov8/SoftUni/blob/main/CSharp-DB/EF-Core-October-2023/README.md) in the corresponding folder.
+- For a detailed overview and key learnings, check the **[README](https://github.com/dimitrov8/SoftUni/blob/main/CSharp-DB/EF-Core-October-2023/README.md)** in the corresponding folder.
 
 Feel free to explore the content of each course's folder for a more in-depth understanding of the module.
 

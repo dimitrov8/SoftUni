@@ -1,16 +1,16 @@
 # C# Advanced Module - May 2023
 
-Welcome to the repository for the **C# Advanced** module at **Software University**. This README provides a concise overview of the key learnings from the module.
+Welcome to the repository for the **C# Advanced** module at [Software University](https://softuni.bg/). This README provides a concise overview of the key learnings from the module.
 
 ## Repository Structure
 
 This repository is organized into two folders, each containing a different module of the **C# Database course**. Here's a brief overview of each module:
 
-### Course 1 => (C# Advanced): [C# Advanced - May 2023]
+### Course 1 => (C# Advanced): [C# Advanced - May 2023](https://github.com/dimitrov8/SoftUni/tree/main/CSharp-Advanced/Advanced-CSharp-May-2023)
 
 - For a detailed overview and key learnings, check the [README](https://github.com/dimitrov8/SoftUni/blob/main/CSharp-Advanced/Advanced-CSharp-May-2023/README.md) in the corresponding folder.
 
-### Course 2 => (C# OOP): [C# OOP - June 2023]
+### Course 2 => (C# OOP): [C# OOP - June 2023](https://github.com/dimitrov8/SoftUni/tree/main/CSharp-Advanced/OOP-CSharp-June-2023)
 
 - For a detailed overview and key learnings, check the [README](https://github.com/dimitrov8/SoftUni/blob/main/CSharp-Advanced/OOP-CSharp-June-2023/README.md) in the corresponding folder.
 

@@ -1,6 +1,6 @@
-# Database Course with MS SQL Server
+# MS SQL Course - September 2023
 
-**Database** course with **MS SQL Server** at **Software University**. Below is a quick overview of what I've learned and studied during the course.
+**Database** course with **MS SQL** at **Software University**. Below is a quick overview of what I've learned and studied during the course.
 
 ## Key Learnings
 

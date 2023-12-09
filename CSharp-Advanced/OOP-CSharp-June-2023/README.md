@@ -4,16 +4,23 @@
 
 ## Key Learnings
 
-- **Advanced Linear Data Structures**: Explored techniques for creating and managing advanced linear data structures. This involved optimizing data organization for more efficient code.
+- **Inheritance**: Explored and implemented inheritance, understanding how to create hierarchical relationships between classes for code reuse and extensibility.
   
-- **Multidimensional Arrays and Matrices**: Expanded my skills in working with multidimensional arrays and matrices. Practiced manipulating complex datasets efficiently.
+- **Encapsulation**: Mastered the principles of encapsulation, learning to hide the internal state of objects and restrict access to their internal details.
 
-- **Generic Concepts, Template Classes and Methods: Dived into the Generic concept, focusing on creating versatile template classes and methods. Now, I can design more adaptable and reusable code components.
+- **Interfaces and Abstraction**: Studied the use of interfaces and abstraction, enabling the creation of flexible and scalable software components.
 
-- **Algorithmic Problem Solving**: Focused on solving algorithmic problems, honing my problem-solving skills with systematic approaches for effective and optimized solutions.
+- **Polymorphism**: Dived into polymorphism, understanding how to write code that can work with objects of multiple types and classes.
 
-- **Advanced File and Data Handling**: Explored advanced techniques for handling data streams, reading/writing files, and navigating directories. Acquired skills for efficient real-world data processing.
+- **Exceptions and Error Handling**: Explored practical approaches to handling exceptions and errors, ensuring robust and error-tolerant code.
 
-- **Functional Programming with LINQ**: Applied functional programming principles, emphasizing Language-Integrated Query (LINQ) for effective data stream processing.
+- **SOLID**: Understood and applied SOLID principles for object-oriented design, fostering maintainability and scalability in software projects.
+
+- **Reflection and Attributes**: Learned about reflection and attributes, exploring ways to inspect and interact with metadata in C#.
+
+- **Unit Testing**: Implemented unit testing strategies, ensuring the reliability and correctness of code through automated testing.
+ 
+- **Mocking and Test Driven Development**: Explored the basic concepts of mocking and test-driven development (TDD), enhancing my skills in software testing and development.
+
 
 

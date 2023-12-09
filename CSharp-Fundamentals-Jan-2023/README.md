@@ -1,6 +1,6 @@
 # Programming Fundamentals at Software University
 
-Welcome to the repository for my Programming Fundamentals course at Software University. This is a summary of what I've learned and studied during the course.
+Welcome to the repository for my **Programming Fundamentals** course at **Software University**. This is a summary of what I've learned and studied during the course.
 
 ## Key Learnings
 

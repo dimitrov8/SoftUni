@@ -1,6 +1,6 @@
 # C# Advanced Module - May 2023
 
-Welcome to the repository for the **C# Advanced** module at **[Software University](https://softuni.bg/)**. This README provides a concise overview of the key learnings from the module.
+Welcome to the repository for the **C# Advanced** module at **[Software University](https://softuni.bg/)**. This **README.md** provides a concise overview of the key learnings from the module, which is organized into two distinct courses.
 
 ## Repository Structure
 

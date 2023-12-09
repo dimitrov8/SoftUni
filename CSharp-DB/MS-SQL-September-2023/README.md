@@ -1,6 +1,6 @@
 # Database Course with MS SQL Server
 
-Welcome to the repository for my Database course with MS SQL Server. Below is a quick overview of what I've learned and studied during the course.
+Welcome to the repository for my **Database** course with **MS SQL Server**. Below is a quick overview of what I've learned and studied during the course.
 
 ## Key Learnings
 

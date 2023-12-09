@@ -4,7 +4,7 @@ Welcome to the repository for the **C# Advanced** module at **[Software Universi
 
 ## Repository Structure
 
-This repository is organized into two folders, each containing a different module of the **C# Database course**. Here's a brief overview of each module:
+This repository is organized into two folders, each containing a different course of the **C# Advanced** module. Here's a brief overview of each course:
 
 ### Course 1 => (C# Advanced): [C# Advanced - May 2023](https://github.com/dimitrov8/SoftUni/tree/main/CSharp-Advanced/Advanced-CSharp-May-2023)
 

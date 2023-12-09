@@ -8,11 +8,11 @@ This repository is organized into two folders, each containing a different modul
 
 ### Course 1 => (C# Advanced): [C# Advanced - May 2023]
 
-- For a detailed overview and key learnings, check the [README](link-to-course1-readme.md) in the corresponding folder.
+- For a detailed overview and key learnings, check the [README](https://github.com/dimitrov8/SoftUni/blob/main/CSharp-Advanced/Advanced-CSharp-May-2023/README.md) in the corresponding folder.
 
 ### Course 2 => (C# OOP): [C# OOP - June 2023]
 
-- For a detailed overview and key learnings, check the [README](link-to-course2-readme.md) in the corresponding folder.
+- For a detailed overview and key learnings, check the [README](https://github.com/dimitrov8/SoftUni/blob/main/CSharp-Advanced/OOP-CSharp-June-2023/README.md) in the corresponding folder.
 
 Feel free to explore the content of each course's folder for a more in-depth understanding of the module.
 

@@ -6,7 +6,7 @@ Welcome to the repository for the **C# Database** module at **Software Universit
 
 This repository is organized into two folders, each containing a different course of the **C# Database Module**. Here's a brief overview of each course:
 
-### Course 1 => (MS SQL): [MS-SQL-September-2023]
+### Course 1 => (MS SQL): [MS-SQL-September-2023](https://github.com/dimitrov8/SoftUni/tree/main/CSharp-Advanced/Advanced-CSharp-May-2023)
 
 - For a detailed overview and key learnings, check the [README](https://github.com/dimitrov8/SoftUni/blob/main/CSharp-DB/MS-SQL-September-2023/README.md) in the corresponding folder.
 

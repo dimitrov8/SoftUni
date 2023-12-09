@@ -1,6 +1,6 @@
 # C# Programming Fundamentals Course - January 2023
 
-Welcome to the repository for my **C# Programming Fundamentals** course at [Software University](https://softuni.bg/). This is a summary of what I've learned and studied during the course.
+Welcome to the repository for my **C# Programming Fundamentals** course at **[Software University](https://softuni.bg/)**. This is a summary of what I've learned and studied during the course.
 
 ## Key Learnings
 

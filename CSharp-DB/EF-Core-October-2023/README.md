@@ -1,6 +1,6 @@
 # Entity Framework Core (EF Core) Course - October 2023
 
-**Entity Framework Core (EF Core)** course at **Software University**. Below is a quick overview of what I've learned and studied during the course.
+**Entity Framework Core (EF Core)** course at [Software University](https://softuni.bg/). Below is a quick overview of what I've learned and studied during the course.
 
 ## Key Learnings
 

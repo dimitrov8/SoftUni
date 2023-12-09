@@ -1,6 +1,6 @@
 # C# Database Course - September 2023
 
-Welcome to the repository for the **C# Database** course. This README provides a concise overview of the key learnings from the course.
+Welcome to the repository for the **C# Database** course at **Software University**. This README provides a concise overview of the key learnings from the course.
 
 ## Course Structure
 

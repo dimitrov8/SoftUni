@@ -21,3 +21,5 @@
 - **Unit Testing**: Implemented unit testing strategies, ensuring the reliability and correctness of code through automated testing.
  
 - **Mocking and Test Driven Development**: Explored the basic concepts of mocking and test-driven development (TDD), enhancing my skills in software testing and development.
+
+- **Design Patterns**: Explored common design patterns, understanding proven solutions to recurring design problems in software development.

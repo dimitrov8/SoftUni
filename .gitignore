@@ -313,6 +313,12 @@ node_modules/
 **/*.Server/ModelManifest.xml
 _Pvt_Extensions
 
+# Debug/Release 
+*/**/bin/Debug
+*/**/bin/Release
+*/**/obj/Debug
+*/**/obj/Release
+
 # Paket dependency manager
 .paket/paket.exe
 paket-files/

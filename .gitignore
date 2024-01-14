@@ -314,10 +314,10 @@ node_modules/
 _Pvt_Extensions
 
 # Debug/Release 
-# */**/bin/Debug
-# */**/bin/Release
-# */**/obj/Debug
-# */**/obj/Release
+*/**/bin/Debug
+*/**/bin/Release
+*/**/obj/Debug
+*/**/obj/Release
 
 # Paket dependency manager
 .paket/paket.exe

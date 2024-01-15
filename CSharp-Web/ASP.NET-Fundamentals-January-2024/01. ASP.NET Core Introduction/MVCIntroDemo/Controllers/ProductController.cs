@@ -76,6 +76,16 @@ public class ProductController : Controller
 
 		string result = string.Join(Environment.NewLine, productLines);
 
+		return this.Content(result);
+	}
+
+	public IActionResult AllAsTextFile()
+	{
+		IEnumerable<string> productLines = this.products
+			.Select(product => $"Product {product.Id}: {product.Name} - {product.Price} lv.");
+
+		string result = string.Join(Environment.NewLine, productLines);
+
 		this.Response.Headers.Add(HeaderNames.ContentDisposition, @"attachment;filename=products.txt");
 
 		return this.File(Encoding.UTF8.GetBytes(result), "text/plain");

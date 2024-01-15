@@ -1,7 +1,9 @@
 ﻿namespace MVCIntroDemo.Controllers;
 
+using System.Text;
 using System.Text.Json;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Net.Http.Headers;
 using Models;
 
 public class ProductController : Controller
@@ -63,6 +65,8 @@ public class ProductController : Controller
 
 		string result = string.Join(Environment.NewLine, productLines);
 
-		return this.Content(result);
+		this.Response.Headers.Add(HeaderNames.ContentDisposition, @"attachment;filename=products.txt");
+
+		return this.File(Encoding.UTF8.GetBytes(result), "text/plain");
 	}
 }

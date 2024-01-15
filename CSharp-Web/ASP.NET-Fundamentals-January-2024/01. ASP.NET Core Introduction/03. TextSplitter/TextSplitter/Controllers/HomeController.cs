@@ -1,4 +1,4 @@
-﻿namespace Text_Splitter.Controllers;
+﻿namespace TextSplitter.Controllers;
 
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
@@ -13,9 +13,22 @@ public class HomeController : Controller
 		this._logger = logger;
 	}
 
-	public IActionResult Index()
+	public IActionResult Index(TextViewModel model)
 	{
-		return this.View();
+		return this.View(model);
+	}
+
+	[HttpPost]
+	public IActionResult Split(TextViewModel model)
+	{
+		string[] splitTextArray = model
+			.Text
+			.Split(" ", StringSplitOptions.RemoveEmptyEntries)
+			.ToArray();
+
+		model.SplitText = string.Join(Environment.NewLine, splitTextArray);
+
+		return this.RedirectToAction("Index", model);
 	}
 
 	public IActionResult Privacy()

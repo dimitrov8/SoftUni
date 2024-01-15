@@ -1,4 +1,4 @@
-namespace Text_Splitter.Models;
+namespace TextSplitter.Models;
 
 public class ErrorViewModel
 {

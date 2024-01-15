@@ -30,6 +30,7 @@ public class ProductController : Controller
 		}
 	};
 
+	[ActionName("My-Products")]
 	public IActionResult All()
 	{
 		return this.View(this.products);

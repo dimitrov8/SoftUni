@@ -2,7 +2,6 @@
 
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Server.IIS.Core;
 using Models;
 
 public class HomeController : Controller
@@ -31,8 +30,14 @@ public class HomeController : Controller
         return this.View();
     }
 
-    public IActionResult  Numbers()
+    public IActionResult Numbers()
     {
+        return this.View();
+    }
+
+    public IActionResult NumbersToN(int count = 3)
+    {
+        this.ViewBag.Count = count;
         return this.View();
     }
 

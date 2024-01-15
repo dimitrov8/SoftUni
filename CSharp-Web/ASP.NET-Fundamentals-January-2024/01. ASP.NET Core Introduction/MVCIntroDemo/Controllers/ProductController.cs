@@ -31,4 +31,17 @@ public class ProductController : Controller
 	{
 		return this.View(this.products);
 	}
+
+	public IActionResult ById(int id)
+	{
+		var product = this.products
+			.FirstOrDefault(p => p.Id == id);
+
+		if (product == null)
+		{
+			return this.BadRequest();
+		}
+
+		return this.View(product);
+	}
 }

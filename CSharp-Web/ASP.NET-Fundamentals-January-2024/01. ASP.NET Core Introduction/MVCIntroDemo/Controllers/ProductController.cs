@@ -1,5 +1,6 @@
 ﻿namespace MVCIntroDemo.Controllers;
 
+using System.Text.Json;
 using Microsoft.AspNetCore.Mvc;
 using Models;
 
@@ -43,5 +44,15 @@ public class ProductController : Controller
 		}
 
 		return this.View(product);
+	}
+
+	public IActionResult AllAsJson()
+	{
+		var options = new JsonSerializerOptions
+		{
+			WriteIndented = true
+		};
+
+		return this.Json(this.products, options);
 	}
 }

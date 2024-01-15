@@ -55,4 +55,14 @@ public class ProductController : Controller
 
 		return this.Json(this.products, options);
 	}
+
+	public IActionResult AllAsText()
+	{
+		IEnumerable<string> productLines = this.products
+			.Select(product => $"Product {product.Id}: {product.Name} - {product.Price} lv.");
+
+		string result = string.Join(Environment.NewLine, productLines);
+
+		return this.Content(result);
+	}
 }

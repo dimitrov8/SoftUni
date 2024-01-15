@@ -31,8 +31,18 @@ public class ProductController : Controller
 	};
 
 	[ActionName("My-Products")]
-	public IActionResult All()
+	public IActionResult All(string? keyword)
 	{
+		if (keyword != null)
+		{
+			IEnumerable<ProductViewModel> foundProducts = this.products
+				.Where(p => p.Name
+					.ToLower()
+					.Contains(keyword.ToLower()));
+
+			return this.View(foundProducts);
+		}
+
 		return this.View(this.products);
 	}
 

@@ -2,6 +2,7 @@
 
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Server.IIS.Core;
 using Models;
 
 public class HomeController : Controller
@@ -27,6 +28,11 @@ public class HomeController : Controller
     public IActionResult About()
     {
         this.ViewBag.Message = "This is an ASP.NET Core MVC app.";
+        return this.View();
+    }
+
+    public IActionResult  Numbers()
+    {
         return this.View();
     }
 

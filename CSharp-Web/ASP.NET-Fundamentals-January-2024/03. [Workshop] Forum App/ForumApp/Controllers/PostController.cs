@@ -48,4 +48,28 @@ public class PostController : Controller
 
 		return this.RedirectToAction("All");
 	}
+
+	public async Task<IActionResult> Edit(int id)
+	{
+		var post = await this.data.Posts.FindAsync(id);
+
+		return this.View(new PostFormModel
+		{
+			Title = post.Title,
+			Content = post.Content
+		});
+	}
+
+	[HttpPost]
+	public async Task<IActionResult> Edit(int id, PostFormModel model)
+	{
+		var post = await this.data.Posts.FindAsync(id);
+
+		post.Title = model.Title;
+		post.Content = model.Content;
+
+		await this.data.SaveChangesAsync();
+
+		return this.RedirectToAction("All");
+	}
 }

@@ -1,6 +1,7 @@
 ﻿namespace ForumApp.Controllers;
 
 using Data;
+using Data.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Models.Post;
@@ -26,5 +27,25 @@ public class PostController : Controller
 			}).ToListAsync();
 
 		return this.View(posts);
+	}
+
+	public async Task<IActionResult> Add()
+	{
+		return this.View();
+	}
+
+	[HttpPost]
+	public async Task<IActionResult> Add(PostFormModel model)
+	{
+		var post = new Post
+		{
+			Title = model.Title,
+			Content = model.Content
+		};
+
+		await this.data.AddAsync(post);
+		await this.data.SaveChangesAsync();
+
+		return this.RedirectToAction("All");
 	}
 }

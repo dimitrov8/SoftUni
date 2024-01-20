@@ -72,4 +72,15 @@ public class PostController : Controller
 
 		return this.RedirectToAction("All");
 	}
+
+	[HttpPost]
+	public async Task<IActionResult> Delete(int id)
+	{
+		var post = await this.data.Posts.FindAsync(id);
+
+		this.data.Posts.Remove(post);
+		await this.data.SaveChangesAsync();
+
+		return this.RedirectToAction("All");
+	}
 }

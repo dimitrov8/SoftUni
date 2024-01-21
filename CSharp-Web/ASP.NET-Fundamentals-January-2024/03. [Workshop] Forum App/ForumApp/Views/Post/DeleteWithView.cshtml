@@ -1,0 +1,26 @@
+﻿@model PostFormModel
+
+@{
+	ViewBag.Title = "Delete Post";
+}
+
+<h2 class="text-center">@ViewBag.Title</h2>
+<hr/>
+
+<div class="row">
+	<form method="post">
+		<div class="form-group">
+			<div class="mb-3">
+				<label asp-for="Title"></label>
+				<input asp-for="Title" class="form-control" disabled="disabled">
+			</div>
+			<div class="mb-3">
+				<label asp-for="Content"></label>
+				<input asp-for="Content" class="form-control" disabled="disabled">
+			</div>
+		</div>
+		<a asp-controller="Post" asp-action="All" class="btn btn-primary">Back</a>
+		<input type="submit" value="Delete" class="btn btn-danger"
+		       onclick="return confirm('Are you sure you want to delete the post?')"/>
+	</form>
+</div>

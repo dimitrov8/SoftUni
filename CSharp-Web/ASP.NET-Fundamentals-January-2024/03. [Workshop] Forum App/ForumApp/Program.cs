@@ -1,7 +1,9 @@
-namespace ForumApp;
+namespace Forum.App;
 
 using Data;
 using Microsoft.EntityFrameworkCore;
+using Services;
+using Services.Interfaces;
 
 public class Program
 {
@@ -9,15 +11,18 @@ public class Program
 	{
 		var builder = WebApplication.CreateBuilder(args);
 
-		string? connectionStrings = builder
+		string? connectionString = builder
 			.Configuration
 			.GetConnectionString("DefaultConnection");
 
 		// Add services to the container.
-		builder
-			.Services.AddDbContext<ForumAppDbContext>(options => options.UseSqlServer(connectionStrings));
-
 		builder.Services.AddControllersWithViews();
+
+		// Adding DbContext allows us to take instance of DbContext  in the entire application
+		builder.Services.AddDbContext<ForumAppDbContext>(options => { options.UseSqlServer(connectionString); });
+
+		// Add custom services
+		builder.Services.AddScoped<IPostService, PostService>();
 
 		var app = builder.Build();
 
@@ -25,6 +30,7 @@ public class Program
 		if (!app.Environment.IsDevelopment())
 		{
 			app.UseExceptionHandler("/Home/Error");
+			//app.UseDeveloperExceptionPage();
 			// The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
 			app.UseHsts();
 		}

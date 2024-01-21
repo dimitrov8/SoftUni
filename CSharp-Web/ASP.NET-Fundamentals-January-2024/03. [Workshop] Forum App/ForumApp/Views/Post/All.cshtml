@@ -1,4 +1,4 @@
-﻿@model List<PostViewModel>
+﻿@model IEnumerable<PostViewModel>
 
 @{
 	ViewBag.Title = "All Posts";
@@ -10,7 +10,7 @@
 	<a asp-controller="Post" asp-action="Add" class="btn btn-primary">Add Post</a>
 </div>
 
-@if (Model.Count() > 0)
+@if (Model.Any())
 {
 	<div class="row">
 		@foreach (var post in Model)
@@ -22,6 +22,7 @@
 						<p class="card-text">@post.Content</p>
 						<div class="d-grid gap-2">
 							<a asp-controller="Post" asp-action="Edit" asp-route-id="@post.Id" class="btn btn-warning">Edit</a>
+							<a asp-controller="Post" asp-action="DeleteWithView" asp-route-id="@post.Id" class="btn btn-danger">Delete with view</a>
 							<form class="mt-2" asp-controller="Post" asp-action="Delete" asp-route-id="@post.Id">
 								<div class="d-grid gap-2">
 									<input type="submit" value="Delete" class="btn btn-danger mb-2"

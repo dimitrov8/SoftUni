@@ -7,7 +7,6 @@ namespace TaskBoardApp.Areas.Identity.Pages.Account;
 
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -20,9 +19,7 @@ public class RegisterModel : PageModel
 	public RegisterModel(
 		UserManager<IdentityUser> userManager,
 		IUserStore<IdentityUser> userStore,
-		SignInManager<IdentityUser> signInManager,
-		ILogger<RegisterModel> logger,
-		IEmailSender emailSender)
+		SignInManager<IdentityUser> signInManager)
 	{
 		this._userManager = userManager;
 		this._userStore = userStore;

@@ -19,7 +19,23 @@ public class Program
 
 		builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-		builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+		builder.Services.AddDefaultIdentity<IdentityUser>(options =>
+			{
+				options.SignIn.RequireConfirmedAccount = builder.Configuration
+					.GetValue<bool>("RequireConfirmedAccount");
+
+				options.Password.RequireLowercase = builder.Configuration
+					.GetValue<bool>("RequireLowercase");
+
+				options.Password.RequireUppercase = builder.Configuration
+					.GetValue<bool>("RequireUppercase");
+
+				options.Password.RequireNonAlphanumeric = builder.Configuration
+					.GetValue<bool>("RequireNonAlphanumeric");
+
+				options.Password.RequiredLength = builder.Configuration
+					.GetValue<int>("RequiredLength");
+			})
 			.AddEntityFrameworkStores<TaskBoardDbContext>();
 
 		builder.Services.AddControllersWithViews();

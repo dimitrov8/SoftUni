@@ -6,23 +6,16 @@
 namespace TaskBoardApp.Areas.Identity.Pages.Account;
 
 using System.ComponentModel.DataAnnotations;
-using System.Text;
-using System.Text.Encodings.Web;
-using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.WebUtilities;
 
 public class RegisterModel : PageModel
 {
 	private readonly SignInManager<IdentityUser> _signInManager;
 	private readonly UserManager<IdentityUser> _userManager;
 	private readonly IUserStore<IdentityUser> _userStore;
-	private readonly IUserEmailStore<IdentityUser> _emailStore;
-	private readonly ILogger<RegisterModel> _logger;
-	private readonly IEmailSender _emailSender;
 
 	public RegisterModel(
 		UserManager<IdentityUser> userManager,
@@ -33,10 +26,7 @@ public class RegisterModel : PageModel
 	{
 		this._userManager = userManager;
 		this._userStore = userStore;
-		this._emailStore = this.GetEmailStore();
 		this._signInManager = signInManager;
-		this._logger = logger;
-		this._emailSender = emailSender;
 	}
 
 	/// <summary>
@@ -56,14 +46,13 @@ public class RegisterModel : PageModel
 	///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
 	///     directly from your code. This API may change or be removed in future releases.
 	/// </summary>
-	public IList<AuthenticationScheme> ExternalLogins { get; set; }
-
-	/// <summary>
-	///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
-	///     directly from your code. This API may change or be removed in future releases.
-	/// </summary>
 	public class InputModel
 	{
+		[Required]
+		[StringLength(50, MinimumLength = 3, ErrorMessage = "Username must be between {2} and {1} characters long!")]
+		[Display(Name = "Username")]
+		public string Username { get; set; }
+
 		/// <summary>
 		///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
 		///     directly from your code. This API may change or be removed in future releases.
@@ -97,53 +86,23 @@ public class RegisterModel : PageModel
 	public async Task OnGetAsync(string returnUrl = null)
 	{
 		this.ReturnUrl = returnUrl;
-		this.ExternalLogins = (await this._signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
 	}
 
 	public async Task<IActionResult> OnPostAsync(string returnUrl = null)
 	{
 		returnUrl ??= this.Url.Content("~/");
-		this.ExternalLogins = (await this._signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
 
 		if (this.ModelState.IsValid)
 		{
 			var user = this.CreateUser();
 
-			await this._userStore.SetUserNameAsync(user, this.Input.Email, CancellationToken.None);
-			await this._emailStore.SetEmailAsync(user, this.Input.Email, CancellationToken.None);
+			await this._userStore.SetUserNameAsync(user, this.Input.Username, CancellationToken.None);
+			await this._userManager.SetEmailAsync(user, this.Input.Email);
+
 			var result = await this._userManager.CreateAsync(user, this.Input.Password);
 
 			if (result.Succeeded)
 			{
-				this._logger.LogInformation("User created a new account with password.");
-
-				string userId = await this._userManager.GetUserIdAsync(user);
-				string code = await this._userManager.GenerateEmailConfirmationTokenAsync(user);
-				code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
-				string callbackUrl = this.Url.Page(
-					"/Account/ConfirmEmail",
-					null,
-					new
-					{
-						area = "Identity",
-						userId,
-						code,
-						returnUrl
-					},
-					this.Request.Scheme);
-
-				await this._emailSender.SendEmailAsync(this.Input.Email, "Confirm your email",
-					$"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
-
-				if (this._userManager.Options.SignIn.RequireConfirmedAccount)
-				{
-					return this.RedirectToPage("RegisterConfirmation", new
-					{
-						email = this.Input.Email,
-						returnUrl
-					});
-				}
-
 				await this._signInManager.SignInAsync(user, false);
 				return this.LocalRedirect(returnUrl);
 			}
@@ -154,7 +113,6 @@ public class RegisterModel : PageModel
 			}
 		}
 
-		// If we got this far, something failed, redisplay form
 		return this.Page();
 	}
 
@@ -170,15 +128,5 @@ public class RegisterModel : PageModel
 			                                    $"Ensure that '{nameof(IdentityUser)}' is not an abstract class and has a parameterless constructor, or alternatively " +
 			                                    $"override the register page in /Areas/Identity/Pages/Account/Register.cshtml");
 		}
-	}
-
-	private IUserEmailStore<IdentityUser> GetEmailStore()
-	{
-		if (!this._userManager.SupportsUserEmail)
-		{
-			throw new NotSupportedException("The default UI requires a user store with email support.");
-		}
-
-		return (IUserEmailStore<IdentityUser>)this._userStore;
 	}
 }

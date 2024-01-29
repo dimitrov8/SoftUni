@@ -10,7 +10,7 @@ using TaskBoardApp.Data;
 
 namespace TaskBoardApp.Data.Migrations
 {
-    [DbContext(typeof(TaskBoardDbContext))]
+    [DbContext(typeof(TaskBoardAppDbContext))]
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

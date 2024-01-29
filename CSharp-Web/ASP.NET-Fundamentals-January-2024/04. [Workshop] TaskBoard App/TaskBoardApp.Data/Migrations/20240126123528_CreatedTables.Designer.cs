@@ -11,7 +11,7 @@ using TaskBoardApp.Data;
 
 namespace TaskBoardApp.Data.Migrations
 {
-    [DbContext(typeof(TaskBoardDbContext))]
+    [DbContext(typeof(TaskBoardAppDbContext))]
     [Migration("20240126123528_CreatedTables")]
     partial class CreatedTables
     {

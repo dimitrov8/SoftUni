@@ -3,6 +3,8 @@ namespace TaskBoardApp;
 using Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Services;
+using Services.Interfaces;
 
 public class Program
 {
@@ -14,7 +16,7 @@ public class Program
 		string connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ??
 		                          throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
 
-		builder.Services.AddDbContext<TaskBoardDbContext>(options =>
+		builder.Services.AddDbContext<TaskBoardAppDbContext>(options =>
 			options.UseSqlServer(connectionString));
 
 		builder.Services.AddDatabaseDeveloperPageExceptionFilter();
@@ -36,7 +38,10 @@ public class Program
 				options.Password.RequiredLength = builder.Configuration
 					.GetValue<int>("RequiredLength");
 			})
-			.AddEntityFrameworkStores<TaskBoardDbContext>();
+			.AddEntityFrameworkStores<TaskBoardAppDbContext>();
+
+		builder.Services.AddScoped<IBoardService, BoardService>();
+		builder.Services.AddScoped<ITaskService, TaskService>();
 
 		builder.Services.AddControllersWithViews();
 

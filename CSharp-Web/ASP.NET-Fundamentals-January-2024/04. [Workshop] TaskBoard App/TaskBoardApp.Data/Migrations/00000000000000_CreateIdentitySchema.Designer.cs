@@ -9,7 +9,7 @@ namespace TaskBoardApp.Data.Migrations
 	using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 	using TaskBoardApp.Data;
 
-	[DbContext(typeof(TaskBoardDbContext))]
+	[DbContext(typeof(TaskBoardAppDbContext))]
 	[Migration("00000000000000_CreateIdentitySchema")]
 	partial class CreateIdentitySchema
 	{
@@ -120,7 +120,9 @@ namespace TaskBoardApp.Data.Migrations
 					b.Property<bool>("TwoFactorEnabled")
 						.HasColumnType("bit");
 
-					b.Property<string>("UserName")
+					b.Property<string>("" +
+					                   "UserName" +
+					                   "")
 						.HasColumnType("nvarchar(256)")
 						.HasMaxLength(256);
 

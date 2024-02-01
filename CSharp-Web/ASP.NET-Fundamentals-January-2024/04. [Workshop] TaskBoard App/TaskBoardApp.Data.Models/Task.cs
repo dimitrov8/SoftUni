@@ -28,7 +28,7 @@ public class Task
 	[ForeignKey(nameof(Board))]
 	public int BoardId { get; set; }
 
-	public Board? Board { get; set; }
+	public Board Board { get; set; }
 
 	[Required]
 	[ForeignKey(nameof(Owner))]

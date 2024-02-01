@@ -57,4 +57,46 @@ public class TaskController : Controller
 
 		return this.RedirectToAction("All", "Board");
 	}
+
+	public async Task<IActionResult> Details(string id)
+	{
+		try
+		{
+			var viewModel = await this._taskService.GetDetailsByIdAsync(id);
+
+			return this.View(viewModel);
+		}
+		catch (Exception)
+		{
+			return this.RedirectToAction("All", "Board");
+		}
+	}
+
+	public async Task<IActionResult> Edit(string id)
+	{
+		try
+		{
+			var viewModel = await this._taskService.GetForEditAsync(id);
+
+			return this.View(viewModel);
+		}
+		catch (Exception)
+		{
+			return this.RedirectToAction("All", "Board");
+		}
+	}
+
+	[HttpPost]
+	public async Task<IActionResult> Edit(string id, TaskFormModel model)
+	{
+		try
+		{
+			await this._taskService.EditAsync(id, model);
+			return this.RedirectToAction("All", "Board");
+		}
+		catch (Exception)
+		{
+			return this.NotFound();
+		}
+	}
 }

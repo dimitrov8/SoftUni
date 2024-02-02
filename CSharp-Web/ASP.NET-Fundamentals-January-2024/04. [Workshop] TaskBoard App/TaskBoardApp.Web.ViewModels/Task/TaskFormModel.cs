@@ -19,5 +19,5 @@ public class TaskFormModel
 	[Display(Name = "Board")]
 	public int BoardId { get; set; }
 
-	public IEnumerable<BoardSelectViewModel> Boards { get; set; } = null!;
+	public IEnumerable<BoardSelectViewModel>? Boards { get; set; }
 }

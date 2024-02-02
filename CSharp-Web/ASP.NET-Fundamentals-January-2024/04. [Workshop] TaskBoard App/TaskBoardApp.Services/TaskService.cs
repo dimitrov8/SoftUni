@@ -1,5 +1,6 @@
 ﻿namespace TaskBoardApp.Services;
 
+using System.Security.Claims;
 using Data;
 using Interfaces;
 using Microsoft.EntityFrameworkCore;
@@ -97,5 +98,47 @@ public class TaskService : ITaskService
 		task.BoardId = model.BoardId;
 
 		await this._dbContext.SaveChangesAsync();
+	}
+
+	public async Task<TaskViewModel> GetForDeleteAsync(string id)
+	{
+		var task = await this._dbContext
+			.Tasks
+			.FirstOrDefaultAsync(t => t.Id.ToString() == id);
+
+		var viewModel = new TaskViewModel
+		{
+			Id = task.Id.ToString(),
+			Title = task.Title,
+			Description = task.Description
+		};
+
+		return viewModel;
+	}
+
+	public async Task DeleteAsync(TaskViewModel model)
+	{
+		var task = await this._dbContext
+			.Tasks
+			.FirstOrDefaultAsync(t => t.Id.ToString() == model.Id);
+
+		this._dbContext.Tasks.Remove(task);
+		await this._dbContext.SaveChangesAsync();
+	}
+
+	public async Task<int> GetUserTasksCountAsync(ClaimsPrincipal user)
+	{
+		if (user.Identity?.IsAuthenticated == true)
+		{
+			string? currentUserId = user.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+			return await this._dbContext.Tasks.CountAsync(t => t.OwnerId == currentUserId);
+		}
+
+		return -1;
+	}
+
+	public async Task<int> GetAllTasksCountAsync()
+	{
+		return await this._dbContext.Tasks.CountAsync();
 	}
 }

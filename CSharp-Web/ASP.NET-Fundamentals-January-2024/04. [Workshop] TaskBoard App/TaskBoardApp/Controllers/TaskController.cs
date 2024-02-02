@@ -37,8 +37,6 @@ public class TaskController : Controller
 	{
 		if (!this.ModelState.IsValid)
 		{
-			model.Boards = await this._boardService.AllForSelectAsync();
-
 			return this.View(model);
 		}
 
@@ -47,7 +45,6 @@ public class TaskController : Controller
 		if (!boardExists)
 		{
 			this.ModelState.AddModelError(nameof(model.BoardId), "Selected board does not exists!");
-			model.Boards = await this._boardService.AllForSelectAsync();
 
 			return this.View(model);
 		}
@@ -92,6 +89,36 @@ public class TaskController : Controller
 		try
 		{
 			await this._taskService.EditAsync(id, model);
+
+			return this.RedirectToAction("All", "Board");
+		}
+		catch (Exception)
+		{
+			return this.NotFound();
+		}
+	}
+
+	public async Task<IActionResult> Delete(string id)
+	{
+		try
+		{
+			var viewModel = await this._taskService.GetForDeleteAsync(id);
+
+			return this.View(viewModel);
+		}
+		catch (Exception)
+		{
+			return this.NotFound();
+		}
+	}
+
+	[HttpPost]
+	public async Task<IActionResult> Delete(TaskViewModel model)
+	{
+		try
+		{
+			await this._taskService.DeleteAsync(model);
+
 			return this.RedirectToAction("All", "Board");
 		}
 		catch (Exception)

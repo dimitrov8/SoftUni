@@ -4,6 +4,7 @@ using Data;
 using Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Web.ViewModels.Board;
+using Web.ViewModels.Home;
 using Web.ViewModels.Task;
 
 public class BoardService : IBoardService
@@ -59,5 +60,33 @@ public class BoardService : IBoardService
 		return await this._dbContext
 			.Boards
 			.AnyAsync(b => b.Id == id);
+	}
+
+	public async Task<IEnumerable<HomeBoardModel>> GetBoardsWithTasksCountAsync()
+	{
+		List<string> taskBoards = await this._dbContext
+			.Boards
+			.Select(b => b.Name)
+			.Distinct()
+			.AsNoTracking()
+			.ToListAsync();
+
+		var tasksCount = new List<HomeBoardModel>();
+
+		foreach (string boardName in taskBoards)
+		{
+			int tasksInBoard = await this._dbContext
+				.Tasks
+				.AsNoTracking()
+				.CountAsync(t => t.Board.Name == boardName);
+
+			tasksCount.Add(new HomeBoardModel
+			{
+				BoardName = boardName,
+				TasksCount = tasksInBoard
+			});
+		}
+
+		return tasksCount;
 	}
 }

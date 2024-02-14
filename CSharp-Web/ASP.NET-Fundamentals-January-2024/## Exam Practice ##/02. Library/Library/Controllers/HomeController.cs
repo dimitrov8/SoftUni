@@ -5,11 +5,16 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Models;
 
-public class HomeController : Controller
+public class HomeController : BaseController
 {
 	[AllowAnonymous]
 	public IActionResult Index()
 	{
+		if (this.User.Identity.IsAuthenticated)
+		{
+			return this.RedirectToAction("All", "Book");
+		}
+
 		return this.View();
 	}
 

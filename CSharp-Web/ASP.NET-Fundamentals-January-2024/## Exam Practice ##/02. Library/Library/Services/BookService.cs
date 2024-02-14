@@ -122,4 +122,42 @@ public class BookService : IBookService
 
 		return true;
 	}
+
+	public async Task<IEnumerable<BooksMineViewModel>> MineAsync(string userId)
+	{
+		return await this._dbContext
+			.Books
+			.Where(b => b.UsersBooks.Any(ub => ub.CollectorId == userId))
+			.Select(b => new BooksMineViewModel
+			{
+				Id = b.Id,
+				Title = b.Title,
+				Author = b.Author,
+				Description = b.Description,
+				ImageUrl = b.ImageUrl,
+				Category = b.Category.Name
+			})
+			.AsNoTracking()
+			.ToArrayAsync();
+	}
+
+	public async Task<bool> RemoveFromCollectionAsync(string userId, int id)
+	{
+		var bookToRemove = await this._dbContext
+			.IdentityUserBooks
+			.FirstOrDefaultAsync(iub => iub.CollectorId == userId && iub.BookId == id);
+
+		if (bookToRemove == null)
+		{
+			return false;
+		}
+
+		this._dbContext
+			.IdentityUserBooks
+			.Remove(bookToRemove);
+
+		await this._dbContext.SaveChangesAsync();
+
+		return true;
+	}
 }

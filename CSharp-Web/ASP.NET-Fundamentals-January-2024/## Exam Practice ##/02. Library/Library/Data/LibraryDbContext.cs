@@ -26,6 +26,16 @@ public class LibraryDbContext : IdentityDbContext
 			.Property(b => b.Rating)
 			.HasPrecision(4, 2);
 
+		builder.Entity<IdentityUserBook>()
+			.HasOne(iub => iub.Book)
+			.WithMany(b => b.UsersBooks)
+			.HasForeignKey(iub => iub.BookId);
+
+		builder.Entity<IdentityUserBook>()
+			.HasOne(iub => iub.Collector)
+			.WithMany()
+			.HasForeignKey(iub => iub.CollectorId);
+
 		builder
 			.Entity<Book>()
 			.HasData(new Book

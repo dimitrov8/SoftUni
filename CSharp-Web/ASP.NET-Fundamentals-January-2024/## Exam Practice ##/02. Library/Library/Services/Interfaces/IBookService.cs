@@ -11,4 +11,8 @@ public interface IBookService
 	Task<IEnumerable<CategoryViewModel>> GetCategoriesAsync();
 
 	Task<bool> AddAsync(string userId, BookAddFormModel model);
+
+	Task<IEnumerable<BooksMineViewModel>> MineAsync(string userId);
+
+	Task<bool> RemoveFromCollectionAsync(string userId, int id);
 }

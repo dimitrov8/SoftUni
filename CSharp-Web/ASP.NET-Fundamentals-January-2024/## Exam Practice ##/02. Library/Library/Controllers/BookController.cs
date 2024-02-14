@@ -95,4 +95,34 @@ public class BookController : BaseController
 			return this.View(nameof(Add), model);
 		}
 	}
+
+	public async Task<IActionResult> Mine()
+	{
+		string userId = this.User.GetId();
+
+		IEnumerable<BooksMineViewModel> model = await this._bookService
+			.MineAsync(userId);
+
+		return this.View(model);
+	}
+
+	public async Task<IActionResult> RemoveFromCollection(int id)
+	{
+		string userId = this.User.GetId();
+
+		if (id <= 0)
+		{
+			return this.BadRequest("Invalid book ID");
+		}
+
+		bool bookOwned = await this._bookService
+			.RemoveFromCollectionAsync(userId, id);
+
+		if (bookOwned == false)
+		{
+			return this.NotFound();
+		}
+
+		return this.RedirectToAction(nameof(this.Mine));
+	}
 }

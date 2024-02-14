@@ -15,7 +15,7 @@ public class BookService : IBookService
 		this._dbContext = dbContext;
 	}
 
-	private Book CreateNewBook(string userId, BookAddFormModel model)
+	private Book CreateNewBook(BookAddFormModel model)
 	{
 		return new Book
 		{
@@ -104,7 +104,7 @@ public class BookService : IBookService
 
 	public async Task<bool> AddAsync(string userId, BookAddFormModel model)
 	{
-		var newBook = this.CreateNewBook(userId, model);
+		var newBook = this.CreateNewBook(model);
 
 		bool bookExists = await this.BookExistsAsync(newBook);
 

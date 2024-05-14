@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>06. Images</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h1>Images</h1>
+
+    <p class="highlight">The img element embeds an image into the document.</p>
+
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti
+      voluptatem sint dolorum illo magni architecto inventore assumenda, optio
+      molestias facere, fuga similique quisquam fugit. Modi consequatur repellat
+      ut ipsam quas?
+    </p>
+
+    <img src="../06.%20Images/Image%20Files/pic1.avif" alt="pic1" />
+
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam labore
+      fuga dolore dignissimos libero totam, consectetur architecto. Excepturi
+      perferendis dolor quia quisquam aliquam tempora in, sapiente odio
+      consectetur dolore totam.
+    </p>
+
+    <img src="../06.%20Images/Image%20Files/pic2.avif" alt="pic2" />
+
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit dolor
+      ipsum earum sint quam, sapiente iusto consequuntur non eligendi incidunt
+      corporis esse, perspiciatis velit quibusdam quae reiciendis, tempora
+      voluptatum quod!
+    </p>
+
+    <h2>Images next to each other</h2>
+
+    <div>
+      <img src="../06.%20Images/Image%20Files/pic3.avif" alt="pic3" />
+      <img src="../06.%20Images/Image%20Files/pic4.avif" alt="pic4" />
+      <img src="../06.%20Images/Image%20Files/pic5.avif" alt="pic5" />
+      <img src="../06.%20Images/Image%20Files/pic6.avif" alt="pic6" />
+      <img src="../06.%20Images/Image%20Files/pic7.avif" alt="pic7" />
+      <img src="../06.%20Images/Image%20Files/pic8.avif" alt="pic8" />
+    </div>
+
+    <h2>Image Gallery (List of images)</h2>
+    <ul class="image-list" id="image-list"></ul>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const maxImages = 6;
+        const imageList = document.querySelector(".image-list");
+
+        for (let i = 0; i < maxImages; i++) {
+          const currentItem = document.createElement("li");
+          const img = document.createElement("img");
+          img.src = `../06.%20Images/Image%20Files/pic${i + 3}.avif`;
+          img.alt = `pic${i + 3}`;
+          currentItem.appendChild(img);
+          imageList.appendChild(currentItem);
+        }
+      });
+    </script>
+  </body>
+</html>

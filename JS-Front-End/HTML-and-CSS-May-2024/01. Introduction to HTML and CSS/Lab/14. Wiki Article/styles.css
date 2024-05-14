@@ -1,0 +1,46 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+article {
+  max-width: 800px;
+  margin: 10px auto;
+  padding: 20px;
+  border: 2px solid #ddd;
+  border-radius: 30px;
+}
+
+h1 {
+  color: #333;
+}
+
+section {
+  margin-top: 20px;
+}
+
+h2 {
+  color: #007bff;
+}
+
+h3 {
+  color: #28a745;
+}
+
+h4 {
+  color: #ffc107;
+}
+
+h5 {
+  color: #dc3545;
+}
+
+h6 {
+  color: #17a2b8;
+}
+
+p {
+  color: #666;
+  line-height: 1.6;
+}

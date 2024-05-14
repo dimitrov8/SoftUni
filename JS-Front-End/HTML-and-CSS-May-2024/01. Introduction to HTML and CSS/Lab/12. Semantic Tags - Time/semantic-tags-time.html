@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Semantic Tags - Time</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>The &lt;time&gt; Element Showcase</h1>
+
+      <h2>Introduction</h2>
+      <p>
+        The &lt;time&gt; element represents a specific period in time. It can be
+        used to display dates, times, or a combination of both, and it allows
+        for better machine readability and accessibility.
+      </p>
+
+      <h2>Examples of the &lt;time&gt; Element</h2>
+      <h3>Date Only (YYYY-MM-DD)</h3>
+      <p>
+        The following is a date:
+        <time datetime="2024-01-01">January 1, 2023</time>
+      </p>
+      <h3>Time Only (24-Hour Format)</h3>
+      <p>
+        The following is a time:
+        <time datetime="14:45">14:45</time>
+        <time datetime="14:45">(2:45 PM)</time>
+      </p>
+
+      <h3>Date and Time Combination</h3>
+      <p>
+        The following is a date and time:
+        <time datetime="2024-01-01T12:00Z"
+          >January 01, 2024, at 12:00 UTC.</time
+        >
+      </p>
+
+      <h3>Human-readable Date with Datetime Attribute</h3>
+      <p>
+        The following is a human-readable date:
+        <time datetime="2024-01-01T00:00Z"> New Year's Day 2024</time>
+      </p>
+
+      <footer>&copy; 2024 Time Element Showcase</footer>
+    </div>
+  </body>
+</html>

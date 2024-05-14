@@ -1,0 +1,48 @@
+/* Type selectors */
+p {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+/* Class selector */
+.highlight {
+  background-color: lightcoral;
+}
+
+/*  Class selector for image container */
+.image-container {
+  display: flex;
+  background-color: #f0f0f0;
+  padding: 10px;
+}
+
+/* Styling for images in image container */
+.image-container img {
+  margin-right: 10px;
+}
+
+/* Styling for image list */
+.image-list {
+  list-style-type: none; /* Remove default list style */
+  padding: 0; /* Remove default padding */
+}
+
+/* Styling for images in image list */
+.image-list img {
+  margin-bottom: 10px;
+}
+
+/* Styling for list items */
+.image-list li {
+  color: blueviolet;
+}
+
+/* Styling for h1 */
+h1 {
+  color: blue;
+}
+
+h2 {
+  color: green;
+  margin-top: 20px;
+}

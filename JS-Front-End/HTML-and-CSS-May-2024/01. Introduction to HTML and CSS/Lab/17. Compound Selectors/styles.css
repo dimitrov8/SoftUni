@@ -1,0 +1,47 @@
+form {
+  margin: 10px auto;
+  padding: 10px;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+}
+
+input {
+  height: 30px;
+  font-size: 15px;
+}
+
+p.highlighted {
+  color: blue;
+  font-size: 19px;
+}
+
+#special-div {
+  background-color: coral;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+}
+
+input[type="text"] {
+  border: 2px solid green;
+  border-radius: 10px;
+  border-width: 3px;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.important {
+  color: cyan;
+}
+
+.important.highlighted {
+  font-style: italic;
+  font-weight: bold;
+  color: red;
+}
+
+ul {
+  margin-bottom: -15px;
+}

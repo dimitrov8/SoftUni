@@ -1,0 +1,22 @@
+/* Adjacent Sibling Selector */
+article + article {
+  background-color: lightgray;
+  padding: 10px;
+  margin: 10px;
+  border: 2px solid grey;
+}
+
+/* Combination of Relative Selectors */
+.special-li + li a {
+  color: green;
+  font-weight: bold;
+}
+
+/* Target the <a> element inside the third <li> element and change its text color */
+ul.special-ul > li > ul > li:nth-child(3) > a {
+  color: green;
+}
+
+ul.special-ul > li:nth-child(2) {
+  color: orange;
+}

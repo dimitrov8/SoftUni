@@ -1,0 +1,7 @@
+/* Apply margin and padding to section and footer. */
+section,
+footer {
+  margin: 20px;
+  padding: 10px;
+  border: 1px solid #333;
+}

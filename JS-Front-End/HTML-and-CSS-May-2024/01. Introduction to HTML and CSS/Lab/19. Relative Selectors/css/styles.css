@@ -1,0 +1,23 @@
+/* Import other CSS files */
+@import url("relative-selectors.css");
+@import url("specific-styles.css");
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+}
+
+/* Remove underline from links */
+a {
+  text-decoration: none;
+}
+
+/* Set color of all links to black */
+a {
+  color: black;
+}
+
+/* Set font weight to bold to all list items */
+li {
+  font-weight: bold;
+}

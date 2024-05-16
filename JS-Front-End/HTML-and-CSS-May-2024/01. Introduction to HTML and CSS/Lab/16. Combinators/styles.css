@@ -1,0 +1,26 @@
+div p {
+  color: blue;
+}
+
+ul > li {
+  list-style-type: square;
+}
+
+p + p {
+  background-color: grey;
+}
+
+p ~ span {
+  font-weight: bold;
+  color: red;
+}
+
+p span {
+  font-style: italic;
+  color: red;
+}
+
+body {
+  font-size: 18px;
+  font-family: Arial, Helvetica, sans-serif;
+}

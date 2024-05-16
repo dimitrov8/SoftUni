@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>18. Complex Selectors</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <!-- Nav -->
+      <nav>
+        <ul>
+          <li>
+            <a href="#">Home</a>
+          </li>
+          <li>
+            <a href="#">About</a>
+          </li>
+          <li>
+            <a href="#">Services</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Div with specific class -->
+    <div class="specific-div-class">
+      <!-- Article 1 -->
+      <article>
+        <h2 style="display: none">Article 1</h2>
+        <p>Our Services</p>
+
+        <!-- Section 1 -->
+        <section>
+          <h2 style="display: none">Service 1</h2>
+          <p>Service 1 description...</p>
+        </section>
+
+        <!-- Section 2 with specific class-->
+        <section class="specific-section-class">
+          <h2 style="display: none">Service 2</h2>
+          <p>Service 2 description...</p>
+        </section>
+
+        <!-- Header -->
+        <header>
+          <p>Additional Information</p>
+          <p>More details about our services.</p>
+        </header>
+
+        <!-- Article 2 -->
+        <article>
+          <h2 style="display: none">Article 2</h2>
+          <!-- Section 1 -->
+          <section>
+            <h2 style="display: none">Second Article Section 1</h2>
+            <p>Second Article Section Style Test ...</p>
+          </section>
+        </article>
+      </article>
+
+      <p>Contact Us</p>
+      <form class="specific-form-class">
+        <input type="text" placeholder="Your Name" />
+        <input type="email" placeholder="Your Email" />
+        <input type="submit" value="Submit" />
+      </form>
+    </div>
+  </body>
+</html>

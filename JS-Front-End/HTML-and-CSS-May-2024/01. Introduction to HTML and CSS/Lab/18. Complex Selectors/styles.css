@@ -1,0 +1,144 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  padding: 0px;
+  margin: 0px;
+}
+
+header nav {
+  margin-top: -20px;
+}
+
+nav ul {
+  list-style-type: none;
+  background-color: #333;
+  text-align: center;
+}
+
+nav ul li {
+  display: inline-block;
+  font-size: 20px;
+}
+
+/* Complex selector involving the descendant combinator */
+nav ul li a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+nav ul li a:hover {
+  background-color: #555;
+}
+
+/* Styling for other links */
+a {
+  color: black; /* Default color for other links */
+}
+
+/* Style <section> elements that are direct children of a specific classed <div> */
+.specific-div-class > article > section {
+  background-color: lightcyan;
+  padding: 10px;
+  margin: 10px;
+}
+
+.specific-div-class > article > p {
+  padding: 10px;
+  margin: 10px;
+  font-weight: bold;
+}
+
+/* Style first 2 characters */
+.specific-div-class > article > p:first-of-type::before {
+  content: ">> ";
+  color: darkred;
+}
+
+/* Style last 2 characters */
+.specific-div-class > article > p:first-of-type::after {
+  content: " <<";
+  color: darkred;
+}
+
+section + header {
+  margin: 10px;
+}
+
+/* Style <article> that follows a <section> with a specific class */
+section.specific-section-class ~ article {
+  background-color: gold;
+  padding: 10px;
+  margin: 10px;
+  border: 2px solid yellowgreen;
+}
+
+/* Style input elements of type text within a form with a specific class */
+form.specific-form-class input[type="text"],
+form.specific-form-class input[type="email"] {
+  width: 200px;
+  padding: 10px;
+  margin: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+}
+
+/* Style paragraphs after the specific-div-class */
+.specific-div-class + p {
+  padding: 10px 0;
+  margin: 10px 0;
+}
+
+/* Reset padding and margin for paragraphs inside header */
+.specific-div-class > p {
+  padding: 0;
+  margin: 0;
+  margin-left: 10px; /* Adjust the margin as needed */
+}
+
+/* Style the submit button */
+.specific-form-class input[type="submit"] {
+  width: 100px;
+  padding: 10px;
+  margin: 10px 0;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+/* Change button color on hover */
+.specific-form-class input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+/* Style the first and last <li> elements inside the <ul> */
+nav ul li:first-child {
+  margin-left: 0;
+}
+
+nav ul li:last-child {
+  margin-right: 0;
+}
+
+/* Style the first <p> element inside the <header> */
+.specific-div-class > article > header > p:first-child {
+  font-weight: bold;
+}
+
+/* Style the last <p> element inside the <header> */
+.specific-div-class > article > header > p:last-child {
+  font-style: italic;
+}
+
+/* Add decorative elements before the <p> elements inside the <header> */
+.specific-div-class > article > header > p::before {
+  content: "➤";
+  margin-right: 5px;
+  font-style: normal;
+}

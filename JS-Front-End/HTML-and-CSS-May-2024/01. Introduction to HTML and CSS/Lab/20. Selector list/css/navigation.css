@@ -1,0 +1,38 @@
+/* Style the navigation bar */
+.custom-nav {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+/* Style the navigation bar unordered list */
+.custom-nav ul {
+  float: left;
+  list-style-type: none;
+  text-align: center;
+  margin-left: -30px;
+}
+
+/* Style the navigation bar list items */
+.custom-nav li {
+  display: inline-block;
+}
+
+/* Style the navigation bar list items links */
+.custom-nav li a {
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+  display: block;
+  padding: 15px 20px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+/* Style the navigation bar hover */
+.custom-nav li a:hover {
+  background-color: #555;
+  text-decoration: underline;
+}

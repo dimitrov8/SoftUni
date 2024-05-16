@@ -1,0 +1,26 @@
+/* Descendant Selector */
+section p {
+  font-weight: bold;
+  color: green;
+}
+
+/* Descendant Selector for highlighted paragraphs */
+section .highlighted p {
+  font-style: italic;
+  background-color: coral;
+  border-radius: 5px;
+}
+
+/* Adjacent Sibling Selector */
+article + article {
+  background-color: lightgray;
+  padding: 10px;
+  margin: 10px;
+  border: 2px solid grey;
+}
+
+/* General Sibling Selector */
+h2.specific-class ~ p {
+  font-weight: bold;
+  color: blue;
+}

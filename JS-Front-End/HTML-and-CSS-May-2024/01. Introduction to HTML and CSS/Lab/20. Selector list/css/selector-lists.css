@@ -1,0 +1,5 @@
+/* Apply font style and font size to all paragraphs */
+p {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+}

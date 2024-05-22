@@ -1,0 +1,19 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f0f0f0;
+  font-size: 20px;
+}
+
+.container {
+  max-width: 600px;
+}
+
+.done-list li span {
+  background-color: #d9e9d9;
+  text-decoration: line-through;
+}
+
+.done-list li:hover {
+  background-color: #c8dcc8;
+  cursor: pointer;
+}

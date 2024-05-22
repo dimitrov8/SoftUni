@@ -11,9 +11,10 @@ body {
 .done-list li span {
   background-color: #d9e9d9;
   text-decoration: line-through;
+  border-radius: 8px;
 }
 
-.done-list li:hover {
-  background-color: #c8dcc8;
-  cursor: pointer;
+.done-list li::before {
+  content: "\2714";
+  color: #4caf50;
 }

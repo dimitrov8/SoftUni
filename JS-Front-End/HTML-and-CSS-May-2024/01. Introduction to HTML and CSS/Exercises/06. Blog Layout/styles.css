@@ -1,0 +1,22 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+}
+
+.container span {
+  color: #555;
+}
+
+.container span::before {
+  content: "by ";
+  font-weight: normal;
+}
+
+.author {
+  font-weight: bold;
+}
+
+.container time {
+  font-style: italic;
+  color: #555;
+}

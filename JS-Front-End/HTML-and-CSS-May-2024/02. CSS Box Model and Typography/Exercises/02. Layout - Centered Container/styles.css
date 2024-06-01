@@ -1,0 +1,25 @@
+* {
+  font: 16px/1.5 Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
+
+.container {
+  max-width: 900px;
+  margin: 3em auto;
+  padding: 2em;
+  border: 2px solid blue;
+  background-color: white;
+}
+
+.container > header,
+.container > main,
+.container > footer {
+  border: 2px solid black;
+  padding: 2em;
+  text-align: center;
+}
+
+.container > header,
+.container > main {
+  margin-bottom: 2em;
+}

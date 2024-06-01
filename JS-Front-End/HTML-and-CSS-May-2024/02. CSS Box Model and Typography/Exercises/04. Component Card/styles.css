@@ -1,0 +1,58 @@
+* {
+  font: 16px/1.5 Arial, Helvetica, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 2em;
+  background: #eee;
+}
+
+.card {
+  display: block;
+  width: 23em;
+  margin: 0 auto;
+  text-decoration: none;
+  color: #333;
+  background: #fff;
+  overflow: hidden;
+  border-radius: 1em;
+  box-shadow: 0 0 1em 0 rgb(0, 0, 0, 0.1);
+  padding-bottom: 0.7em;
+}
+
+.card span {
+  display: block;
+}
+
+.card img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.card .main,
+.card .footer {
+  padding: 1em 2em;
+}
+
+.card strong {
+  display: block;
+  font-size: 1.1em;
+  font-weight: bold;
+  padding-bottom: 0.5rem;
+}
+
+.card .footer span {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card .footer span:first-child {
+  font-weight: bold;
+}
+
+.card .footer span:last-child {
+  font-style: italic;
+}

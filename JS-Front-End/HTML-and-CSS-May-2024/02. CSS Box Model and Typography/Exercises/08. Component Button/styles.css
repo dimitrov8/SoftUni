@@ -1,0 +1,63 @@
+html {
+  font: 16px/1.5 Arial, Helvetica, sans-serif;
+}
+
+body {
+  padding: 2em;
+  margin: 0 auto;
+}
+
+.button {
+  background: #ddd;
+  text-align: center;
+  border-radius: 0.3em;
+  text-decoration: none;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  color: #333;
+  padding: 1em 1.5em;
+  display: inline-block;
+}
+
+.button + .button {
+  margin-left: 1em;
+}
+
+.button:focus,
+.button:hover {
+  color: #fff;
+  background: #000;
+}
+
+.button:active {
+  background: #060 !important;
+  color: white !important;
+}
+
+.button.primary {
+  background: orange;
+}
+
+.button.primary:hover {
+  background: darkorange;
+  color: #fff;
+}
+
+.button.secondary {
+  background: lightgoldenrodyellow;
+}
+
+.button.secondary:hover {
+  background-color: lightblue;
+  color: #fff;
+}
+
+.button.outline {
+  background: #fff;
+  border: 1px solid #ccc;
+}
+
+.button.outline:hover {
+  background: #eee;
+  color: #333;
+}

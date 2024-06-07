@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>06. Property - align-content</title>
+    <link rel="stylesheet" href="align-content.css" />
+  </head>
+  <body>
+    <h1>align-content</h1>
+    <h2>align-content: flex-start; (default)</h2>
+    <div class="flex-container align-content-flex-start"></div>
+
+    <h2>align-content: center</h2>
+    <div class="flex-container align-content-center"></div>
+
+    <h2>align-content: flex-end</h2>
+    <div class="flex-container align-content-flex-end"></div>
+
+    <h2>align-content: space-between</h2>
+    <div class="flex-container align-content-space-between"></div>
+
+    <h2>align-content: space-around</h2>
+    <div class="flex-container align-content-space-around"></div>
+
+    <script>
+      function createNumbers(className) {
+        const containers = document.querySelectorAll("." + className);
+
+        containers.forEach((container) => {
+          for (let i = 1; i <= 12; i++) {
+            const div = document.createElement("div");
+            div.className = "flex-item";
+            div.textContent = i;
+            container.appendChild(div);
+          }
+        });
+      }
+
+      createNumbers("flex-container");
+    </script>
+  </body>
+</html>

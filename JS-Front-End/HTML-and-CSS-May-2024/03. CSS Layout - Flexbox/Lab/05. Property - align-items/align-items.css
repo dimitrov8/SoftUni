@@ -10,6 +10,7 @@
   background: #eee;
   padding: 20px;
   border: 2px solid #000;
+  align-items: center;
 }
 
 .align-items-stretch {

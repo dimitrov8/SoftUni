@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>07. Property - gap</title>
+    <link rel="stylesheet" href="gap.css" />
+  </head>
+  <body>
+    <h1>gap</h1>
+    <h2>gap row (gap: 2em 0;)</h2>
+    <div class="flex-container gap-row"></div>
+
+    <h2>gap column (gap: 0 2em;)</h2>
+    <div class="flex-container gap-column"></div>
+
+    <h2>gap (gap: 2em;)</h2>
+    <div class="flex-container gap"></div>
+
+    <script>
+      function createNumbers(className) {
+        const containers = document.querySelectorAll("." + className);
+
+        containers.forEach((container) => {
+          for (let i = 1; i <= 12; i++) {
+            const div = document.createElement("div");
+            div.className = "flex-item";
+            div.textContent = i;
+            container.appendChild(div);
+          }
+        });
+      }
+
+      createNumbers("flex-container");
+    </script>
+  </body>
+</html>

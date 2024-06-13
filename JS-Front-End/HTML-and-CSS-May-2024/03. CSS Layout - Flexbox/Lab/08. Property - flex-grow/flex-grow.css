@@ -1,20 +1,15 @@
 .flex-container {
   width: 400px;
   border: 2px solid blue;
-  padding: 20px;
+  padding: 1em;
   display: flex;
-  height: 200px;
   flex-wrap: wrap;
   align-items: flex-start;
 }
 .flex-container .flex-item {
   background: #eee;
-  padding: 20px;
+  padding: 1em;
   border: 2px solid #000;
-}
-
-.flex-grow .flex-item {
-  flex-grow: 0;
 }
 
 .flex-grow-one .flex-item {

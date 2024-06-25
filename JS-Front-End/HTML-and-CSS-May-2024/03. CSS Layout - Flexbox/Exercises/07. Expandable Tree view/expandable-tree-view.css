@@ -1,0 +1,74 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font: 14px/1.5 Lato, sans-serif;
+  padding: 2em;
+}
+
+h1 {
+  padding-bottom: 1em;
+}
+
+.tree ul {
+  margin: 0 auto;
+}
+
+.tree li {
+  position: relative;
+  list-style: none;
+  margin-left: 25px;
+  cursor: default;
+}
+
+.tree-main li::before,
+.tree-main li::after {
+  content: "";
+  position: absolute;
+  left: -40px;
+  background: #aaa;
+  border-radius: 11px;
+}
+
+.tree-main li::before {
+  height: 3px;
+  width: 39px;
+  top: 8px;
+}
+
+.tree-main li::after {
+  height: 70px;
+  width: 4px;
+  top: -10px;
+}
+
+details {
+  margin: 0 auto;
+}
+
+summary {
+  display: block;
+  position: relative;
+  cursor: pointer;
+}
+
+summary::before {
+  content: "+";
+  position: absolute;
+  height: 18px;
+  width: 18px;
+  top: 0;
+  left: -22px;
+  background: green;
+  color: white;
+  border-radius: 10px;
+  text-align: center;
+  z-index: 1;
+}
+
+details[open] > summary::before {
+  content: "-";
+}

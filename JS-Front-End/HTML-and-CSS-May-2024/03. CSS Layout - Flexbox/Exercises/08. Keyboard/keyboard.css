@@ -1,0 +1,118 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  font-size: 12px;
+  background: #f4f4f4;
+}
+
+.keyboard {
+  background: #ddd;
+  padding: 1em;
+  border-radius: 1em;
+  border: 1px solid #999;
+  box-shadow: 0 0.3em 0 0 #aaa;
+}
+
+.key-row {
+  display: flex;
+  margin-bottom: 0.5em;
+}
+
+.key {
+  height: 3em;
+  aspect-ratio: 1/1;
+  background: #fff;
+  border: 1px solid #ccc;
+  margin: 0.4em 0.5em;
+  border-radius: 0.5em;
+  cursor: pointer;
+  outline: none;
+  box-shadow: 0 0.2em 0 0 #888;
+  text-transform: lowercase;
+  transition: background-color 0.1s ease-in-out, border-color 0.1s ease-in-out,
+    color 0.1s ease-in-out;
+}
+
+.key:hover,
+.key:focus-visible {
+  background: #666 !important;
+  color: #fff;
+  border-color: #333;
+  box-shadow: 0 0.2em 0 0 #333;
+}
+
+.key:active {
+  box-shadow: 0 0 0 #333 !important;
+  position: relative;
+  top: 0.16em;
+}
+
+.key.special {
+  background-color: #eee;
+}
+
+.function-keys .key {
+  height: 2.5em;
+  aspect-ratio: 1.28/1;
+}
+
+.key-space {
+  flex-grow: 1;
+}
+
+.key-tab {
+  aspect-ratio: 1.5/1;
+}
+
+.key-caps {
+  aspect-ratio: 2/1;
+}
+
+.key-backspace {
+  aspect-ratio: 2/1;
+}
+
+.key-enter {
+  flex-grow: 1;
+  position: relative;
+  border-bottom-right-radius: 0;
+}
+
+.key-enter::after {
+  display: block;
+  content: "";
+  border: inherit;
+  background: inherit;
+  box-shadow: inherit;
+  position: absolute;
+  top: 100%;
+  right: -0.07em;
+  height: 3em;
+  aspect-ratio: 1/1;
+  border-radius: inherit;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 1em;
+  border-top: none;
+  padding-bottom: 1.2em;
+}
+
+.key-shift-left {
+  aspect-ratio: 1.4/1;
+}
+
+.key-shift-right {
+  flex-grow: 1;
+}
+
+.key-ctrl-left,
+.key-alt-left,
+.key-win-left,
+.key-ctrl-right,
+.key-alt-right,
+.key-win-right {
+  aspect-ratio: 1.4/1;
+}

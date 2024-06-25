@@ -1,0 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font: 16px/1.5 Lato, sans-serif;
+  padding: 2em;
+  display: flex;
+  min-height: 100vh;
+  border: 2px solid green;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.container > * {
+  border: 2px solid blue;
+  padding: 2em;
+}
+
+.container > * + * {
+  margin-top: 2em;
+}
+
+.container main {
+  flex: 1 1 auto;
+}

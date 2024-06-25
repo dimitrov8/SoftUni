@@ -1,0 +1,97 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font: 14px/1.5 Lato, sans-serif;
+}
+
+body {
+  font: inherit;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #eee;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 2em;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.container {
+  max-width: 1200px;
+}
+
+article {
+  background: #fff;
+  display: flex;
+  flex-direction: row;
+  padding: 2em;
+  gap: 2em;
+  box-shadow: 0 0 2em 0 rgba(0, 0, 0, 0.1);
+  border-radius: 0.3em;
+}
+
+article header {
+  padding-bottom: 0.5em;
+}
+
+article section p {
+  margin-bottom: 1em;
+}
+
+article hgroup h1 {
+  font-size: 2.5em;
+  font-weight: normal;
+}
+
+article hgroup h2 {
+  opacity: 0.5;
+}
+
+article hgroup h1,
+article hgroup h2 {
+  line-height: 1;
+}
+
+article .media {
+  flex: 0 0 30%;
+  order: 1;
+  overflow: hidden;
+  position: relative;
+  border-radius: 0.3em;
+}
+
+.media:empty {
+  background-color: #eee;
+  border: 1px solid #ccc;
+}
+
+.button {
+  display: inline-block;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 0.5em 1.5em;
+  border-radius: 0.5em;
+}
+
+.button.primary {
+  background: #663399;
+  color: #fff;
+}
+
+.button.secondary {
+  background: #eee;
+  color: #6b6b6b;
+}
+
+.button + .button {
+  margin-left: 1em;
+}

@@ -6,7 +6,7 @@ function printCityInfo(cityObj) {
   }
 }
 
-solve({
+printCityInfo({
   name: 'Sofia',
   area: 492,
   population: 1238438,

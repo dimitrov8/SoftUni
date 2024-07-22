@@ -1,6 +1,6 @@
 function wordsTracker(inputArray) {
   const wantedWords = inputArray.shift().split(' ');
-  let wantedWordsCounts = {};
+  const wantedWordsCounts = {};
   wantedWords.forEach((word) => (wantedWordsCounts[word] = 0));
 
   inputArray.forEach(

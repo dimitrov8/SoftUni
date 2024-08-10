@@ -1,13 +1,13 @@
 function attachGradientEvents() {
-  let gradientElement = document.getElementById('gradient');
-  let resultElement = document.getElementById('result');
+  const gradientElement = document.getElementById('gradient');
+  const resultElement = document.getElementById('result');
 
   gradientElement.addEventListener('mousemove', onMouseMove);
   gradientElement.addEventListener('mouseout', onMouseOut);
 
   function onMouseMove(event) {
-    let currentMouseX = event.offsetX;
-    let percentage = Math.floor((currentMouseX / this.clientWidth) * 100);
+    const currentMouseX = event.offsetX;
+    const percentage = Math.floor((currentMouseX / this.clientWidth) * 100);
     resultElement.textContent = percentage + '%';
   }
 

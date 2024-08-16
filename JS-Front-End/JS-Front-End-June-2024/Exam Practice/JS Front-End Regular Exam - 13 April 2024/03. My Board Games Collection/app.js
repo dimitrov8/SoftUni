@@ -15,12 +15,11 @@ addButton.addEventListener('click', handleAddGame);
 editButton.addEventListener('click', handleEditGame);
 
 async function loadGames() {
-  console.log('Games Loaded:');
-
   const response = await fetch(baseUrl);
   const games = await response.json();
   gamesList.innerHTML = '';
 
+  console.log('Games Loaded:');
   Object.values(games).forEach((game) => {
     console.log(game);
 
@@ -144,12 +143,6 @@ async function handleDelete(gameId) {
   });
 
   await loadGames();
-}
-
-async function getGameById(gameId) {
-  const response = await fetch(`${baseUrl}/${gameId}`);
-
-  return await response.json();
 }
 
 function isValidInput() {
